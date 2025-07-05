@@ -167,7 +167,7 @@ df_pr = pd.DataFrame({"Overall": {t:pr_complete[t+"_Off"] + pr_complete[t+"_Def"
         )
 
 
-st.markdown('''Based on your power ratings, we use Python to run many simulations of the 2023 NFL season, and then estimate answers to questions like:
+st.markdown('''Based on your power ratings, we use Python to run many simulations of the NFL season, and then estimate answers to questions like:
 * How likely is Dallas to get the no. 1 seed?  To win its division? To make the playoffs?
 * How likely are the Steelers to win exactly 11 games?  To win 11 or more games?
 * How likely are the Patriots to finish 3rd in the AFC East?''')
@@ -415,7 +415,7 @@ The displayed text in our sample image shows that, according to our simulations:
         st.image("images/wc_holder.png")
     with c_text:
         st.subheader("How to interpret the win total image.")
-        st.markdown('''The NFC win total image shows the probability, according to our simulations, of different teams having a specific number of wins at the end of the 2023 regular season.
+        st.markdown('''The NFC win total image shows the probability, according to our simulations, of different teams having a specific number of wins at the end of the regular season.
 The thin black line represents the median win total for each team.\n\nFor example:
 * The thin black vertical line passes through the median win total for each team.  The median win total for San Francisco is 10, the median win total for Chicago is 8, while the median win total for Arizona is 6.
 * It looks like Washington has about a 40% chance of winning 8 or more games (the region to the left of the red bar).
