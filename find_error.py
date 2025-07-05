@@ -2,7 +2,7 @@ import pandas as pd
 
 import sim_playoffs
 from sim_playoffs import simulate_playoffs
-from sim_23season import simulate_reg_season
+from sim_season import simulate_reg_season
 from make_standings import Standings, make_ind, get_div_winners
 df = pd.read_csv("schedules/schedule23.csv")
 

@@ -4,7 +4,7 @@ from collections import Counter
 import pandas as pd
 import altair as alt
 alt.data_transformers.disable_max_rows()
-from sim_23season import simulate_reg_season, make_pr_custom
+from sim_season import simulate_reg_season, make_pr_custom
 from sim_playoffs import stages, simulate_playoffs
 from make_standings import Standings
 from make_charts import (
@@ -29,26 +29,28 @@ import time
 
 st.set_page_config(layout="wide", page_title="2024 Simulator")
 
-st.title('2024 NFL Season Simulator')
-# New season: update schedule below and in the `sim_23season.py` file
+st.title('2025 NFL Season Simulator')
+# New season: update schedule below and in the `sim_season.py` file
 # New season: update every schedule24.csv to schedule25.csv
 
 pr_default = pd.read_csv("data/pr.csv", index_col="Team").squeeze()
 div_series = pd.read_csv("data/divisions.csv", index_col=0).squeeze()
 
+# The next portion doesn't seem to work the first time it's run
+# due to imports above
 download_results = False
 if download_results:
     df_schedule = pd.read_csv("https://raw.githubusercontent.com/nflverse/nfldata/refs/heads/master/data/games.csv")
-    df_schedule = df_schedule.query("season==2024")
+    df_schedule = df_schedule.query("season==2025")
     df_schedule["conf_game"] = df_schedule.apply(
         lambda row: div_series[row["home_team"]][:3] == div_series[row["away_team"]][:3], axis=1
         )
-    df_schedule.to_csv("schedules/schedule24.csv", index=False)
+    df_schedule.to_csv("schedules/schedule25.csv", index=False)
 else:
-    df_schedule = pd.read_csv("schedules/schedule24.csv")
+    df_schedule = pd.read_csv("schedules/schedule25.csv")
 
-last_played = df_schedule[df_schedule["home_score"].notna()].iloc[-1]
-#last_played = "Nothing"
+# last_played = df_schedule[df_schedule["home_score"].notna()].iloc[-1]
+last_played = "Nothing"
 teams = div_series.index
 conf_teams = {}
 for conf in ["AFC","NFC"]:
@@ -301,8 +303,8 @@ if sim_button or ("rc" in st.session_state):
 
     end = time.time()
     
-    time_holder.markdown(f'''{reps} simulations of the 2024 NFL season took {end - start:.1f} seconds. 
-    Last updated game: Week {last_played['week']}: {last_played['away_team']} {int(last_played['away_score'])} - {last_played['home_team']} {int(last_played['home_score'])}''')
+    time_holder.markdown(f'''{reps} simulations of the 2024 NFL season took {end - start:.1f} seconds.''')
+    # Last updated game: Week {last_played['week']}: {last_played['away_team']} {int(last_played['away_score'])} - {last_played['home_team']} {int(last_played['home_score'])}''')
 
 
     playoff_charts, raw_data = make_playoff_charts(playoff_dict)
@@ -443,11 +445,11 @@ if 'pc' in st.session_state:
     st.altair_chart(st.session_state["superbowl_chart"])
     st.altair_chart(st.session_state["stage_charts"])
     # st.altair_chart(st.session_state["best_chart"])
-    df_temp = pd.read_csv("data/markets.csv")
-    st.write(f'''The following were last updated on {df_temp.loc[0, 'date']}.  Needless to say, do not take the kelly staking sizes literally!!  (Along with errors and imprecisions in our app, also keep in mind how long the stake will be sitting unused.)
-    By default, they are sorted by odds, but click the kelly column to sort by that.''')
+    # df_temp = pd.read_csv("data/markets.csv")
+    # st.write(f'''The following were last updated on {df_temp.loc[0, 'date']}.  Needless to say, do not take the kelly staking sizes literally!!  (Along with errors and imprecisions in our app, also keep in mind how long the stake will be sitting unused.)
+    # By default, they are sorted by odds, but click the kelly column to sort by that.''')
     # Once we have betting odds to compare, uncomment the next line
-    st.dataframe(st.session_state['raw_data'])
+    # st.dataframe(st.session_state['raw_data'])
     # st.altair_chart(st.session_state['lc'])
     # st.altair_chart(st.session_state["streak_charts"])
 
@@ -506,7 +508,7 @@ elif info_choice == "Conference":
         st.altair_chart(
             alt.vconcat(conf_champ_charts["AFC"], conf_champ_charts["NFC"])
             )
-    except AttributeError:
+    except KeyError:
         st.write('No data yet. Press the "Run simulations" button above.')
 elif info_choice == "Rankings":
     st.subheader("Power rankings 1-32 based on current values")

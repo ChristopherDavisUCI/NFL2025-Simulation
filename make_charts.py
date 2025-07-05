@@ -2,7 +2,7 @@ import pandas as pd
 import altair as alt
 alt.data_transformers.disable_max_rows()
 
-df = pd.read_csv("schedules/schedule24.csv")
+df = pd.read_csv("schedules/schedule25.csv")
 div_series = pd.read_csv("data/divisions.csv", index_col=0).squeeze()
 teams = sorted(list(set(df["home_team"])))
 conf_teams = {}

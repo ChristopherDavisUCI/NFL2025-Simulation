@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from numpy.random import default_rng
 
-df = pd.read_csv("schedules/schedule24.csv")
+df = pd.read_csv("schedules/schedule25.csv")
 df_stored = df.copy()
 pr_default = pd.read_csv("data/pr.csv", index_col="Team").squeeze()
 pr_custom = pd.Series()
