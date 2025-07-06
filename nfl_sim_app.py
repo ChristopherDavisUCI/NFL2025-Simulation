@@ -450,8 +450,8 @@ if 'pc' in st.session_state:
     # By default, they are sorted by odds, but click the kelly column to sort by that.''')
     # Once we have betting odds to compare, uncomment the next line
     # st.dataframe(st.session_state['raw_data'])
-    # st.altair_chart(st.session_state['lc'])
-    # st.altair_chart(st.session_state["streak_charts"])
+    st.altair_chart(st.session_state['lc'])
+    st.altair_chart(st.session_state["streak_charts"])
 
     st.subheader("Download as a csv")
     st.download_button(
