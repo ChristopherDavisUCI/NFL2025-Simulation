@@ -483,7 +483,7 @@ info_choice = st.radio(
     radio_dict.keys(),
     key="opt_radio",
     format_func=lambda k: radio_dict[k],
-    index=0
+    index=2
     )
 
 if info_choice == "Matchups":
