@@ -27,7 +27,7 @@ from name_helper import get_abbr
 from odds_helper import prob_to_odds
 import time
 
-st.set_page_config(layout="wide", page_title="2024 Simulator")
+st.set_page_config(layout="wide", page_title="2025 Simulator")
 
 st.title('2025 NFL Season Simulator')
 # New season: update schedule below and in the `sim_season.py` file
