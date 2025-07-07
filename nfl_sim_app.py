@@ -208,7 +208,7 @@ if sim_button or ("rc" in st.session_state):
     st.header("Simulation results")
     placeholder0 = st.empty()
     placeholder1 = st.empty()
-    placeholder0.text(f"Running {reps} simulations of the 2024 NFL season")
+    placeholder0.text(f"Running {reps} simulations of the 2025 NFL season")
     bar = placeholder1.progress(0.0)
     st.write("")
 
@@ -303,7 +303,7 @@ if sim_button or ("rc" in st.session_state):
 
     end = time.time()
     
-    time_holder.markdown(f'''{reps} simulations of the 2024 NFL season took {end - start:.1f} seconds.''')
+    time_holder.markdown(f'''{reps} simulations of the NFL season took {end - start:.1f} seconds.''')
     # Last updated game: Week {last_played['week']}: {last_played['away_team']} {int(last_played['away_score'])} - {last_played['home_team']} {int(last_played['home_score'])}''')
 
 
