@@ -48,6 +48,9 @@ def get_prob(row, prob_dct):
         # this isn't very robust, because we are assuming NFC team is first
         # and that they are written exactly the same
         return prob_dct["matchup"].get(row["team"], 0)
+    elif (row["raw_market"] == "stage") and (row["result"] in prob_dct):
+        ser = prob_dct[row["result"]]
+        return ser.get(row["team"], 0)
 
 def name_market(row):
     if row["raw_market"] == "division":
@@ -68,25 +71,21 @@ def name_market(row):
         return "Last winless team"
     elif row["raw_market"] == "exact matchup":
         return "Exact Super bowl matchup"
+    if row["raw_market"] == "stage":
+        return f"Stage of Elim - {row['result']}"
+    
 
 def display_plus(s):
     if s[0] == "-":
         return s
     else:
         return "+"+s
-    
 
-def win_sb(champ_data):
-    '''Returns a Series indicating the probability of winning the Super Bowl for each team.'''
+
+def make_stage_series(champ_data, stage):
+    '''Returns a Series indicating the probability of each team being eliminated in that stage.'''
     df = champ_data.set_index("Team", drop=True)
-    df = df[df["Stage"] == "Win Super Bowl"].copy()
-    return df["Proportion"]
-
-
-def lose_sb(champ_data):
-    '''Returns a Series indicating the probability of each team losing the Super Bowl.'''
-    df = champ_data.set_index("Team", drop=True)
-    df = df[df["Stage"] == "Lose in Super Bowl"].copy()
+    df = df[df["Stage"] == stage].copy()
     return df["Proportion"] 
 
 
@@ -115,8 +114,14 @@ def compare_market(raw_data, champ_data, pivot_all, matchup_list):
     market.rename({"market": "raw_market"}, axis=1, inplace=True)
     ser_div = win_div(raw_data)
     ser_mp = make_playoffs(raw_data)
-    ser_sb = win_sb(champ_data)
-    ser_lose = lose_sb(champ_data)
+    # Keys are stage of elimination
+    # Values are a Series with index teams, values probabilities of being eliminated in that stage
+    stage_dct = {}
+    for stage in champ_data["Stage"].unique():
+        stage_dct[stage] = make_stage_series(champ_data, stage)
+    
+    ser_sb = stage_dct["Win Super Bowl"]
+    ser_lose = stage_dct["Lose in Super Bowl"]
     # Winning the Conf = Win SB or Lose SB
     ser_conf = ser_sb + ser_lose
     ser_matchup = matchup_prob(matchup_list)
@@ -130,6 +135,7 @@ def compare_market(raw_data, champ_data, pivot_all, matchup_list):
         "winless": pivot_all["Last winless"],
         "matchup": ser_matchup
     }
+    prob_dct.update(stage_dct)
     market["prob"] = market.apply(lambda row: get_prob(row, prob_dct), axis=1)
     market["market"] = market.apply(name_market, axis=1)
     market["kelly"] = market.apply(lambda row: kelly(row["prob"], row["odds"]), axis=1)

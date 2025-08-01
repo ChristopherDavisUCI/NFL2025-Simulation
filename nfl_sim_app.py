@@ -445,11 +445,11 @@ if 'pc' in st.session_state:
     st.altair_chart(st.session_state["superbowl_chart"])
     st.altair_chart(st.session_state["stage_charts"])
     st.altair_chart(st.session_state["best_chart"])
-    # df_temp = pd.read_csv("data/markets.csv")
-    # st.write(f'''The following were last updated on {df_temp.loc[0, 'date']}.  Needless to say, do not take the kelly staking sizes literally!!  (Along with errors and imprecisions in our app, also keep in mind how long the stake will be sitting unused.)
-    # By default, they are sorted by odds, but click the kelly column to sort by that.''')
+    df_temp = pd.read_csv("data/markets.csv")
+    st.write(f'''The following were last updated on {df_temp.loc[0, 'date']}.  Needless to say, do not take the kelly staking sizes literally!!  (Along with errors and imprecisions in our app, also keep in mind how long the stake will be sitting unused.)
+    By default, they are sorted by odds, but click the kelly column to sort by that.''')
     # Once we have betting odds to compare, uncomment the next line
-    # st.dataframe(st.session_state['raw_data'])
+    st.dataframe(st.session_state['raw_data'])
     st.altair_chart(st.session_state['lc'])
     st.altair_chart(st.session_state["streak_charts"])
 
@@ -536,7 +536,7 @@ elif info_choice == "Division":
     if "dc" in st.session_state:
         st.subheader("Division ranks")
         st.write(f"Based on {reps:.0f} simulations:")
-        st.write(st.session_state["dc"])
+        st.altair_chart(st.session_state["dc"])
     else:
         st.write('No data yet.  Press the "Run simulations" button above.')
     
