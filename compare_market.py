@@ -19,6 +19,45 @@ def make_playoffs(raw_data):
     return df["Make_playoffs"]
 
 
+def event_probability(total_str, w_dct):
+    """
+    Calculates the probability of 'over' or 'under' events given the shorthand total string and win probabilities.
+    
+    Args:
+        total_str: e.g., 'u7.5', 'o7', etc.
+        w_dct: Dictionary of win probabilities, e.g., {0: 0.1, 1: 0.1, ...}
+        
+    Returns:
+        Probability (float)
+    """
+    prefix = total_str[0].lower()  # 'u' or 'o'
+    number = float(total_str[1:])  # e.g., 7.5 or 7
+
+    win_nums = list(w_dct.keys())  # All possible outcomes
+
+    # Check if integer or decimal total
+    if number.is_integer():
+        num = int(number)
+        # Push case: must re-normalize (i.e., divide by sum without tie)
+        valid_probs = [v for k, v in w_dct.items() if k != num]
+        normalizer = sum(valid_probs)
+        if prefix == 'u':
+            prob = sum(v for k, v in w_dct.items() if k < num) / normalizer
+        elif prefix == 'o':
+            prob = sum(v for k, v in w_dct.items() if k > num) / normalizer
+        else:
+            raise ValueError("Invalid prefix in total_str. Must start with 'u' or 'o'.")
+    else:
+        if prefix == 'u':
+            prob = sum(v for k, v in w_dct.items() if k < number)
+        elif prefix == 'o':
+            prob = sum(v for k, v in w_dct.items() if k > number)
+        else:
+            raise ValueError("Invalid prefix in total_str. Must start with 'u' or 'o'.")
+
+    return prob
+
+
 def get_prob(row, prob_dct):
     if row["raw_market"] == "division":
         ser = prob_dct["div"]
@@ -51,6 +90,11 @@ def get_prob(row, prob_dct):
     elif (row["raw_market"] == "stage") and (row["result"] in prob_dct):
         ser = prob_dct[row["result"]]
         return ser.get(row["team"], 0)
+    elif row["raw_market"] == "wins":
+        win_prob_dct = prob_dct["wins"]
+        result = row["result"]
+        return event_probability(result, win_prob_dct[row["team"]])
+        # result is something like o8.5 or u8.5
 
 def name_market(row):
     if row["raw_market"] == "division":
@@ -71,8 +115,10 @@ def name_market(row):
         return "Last winless team"
     elif row["raw_market"] == "exact matchup":
         return "Exact Super bowl matchup"
-    if row["raw_market"] == "stage":
+    elif row["raw_market"] == "stage":
         return f"Stage of Elim - {row['result']}"
+    elif row["raw_market"] == "wins":
+        return f"Reg Season Wins - {row['result']}"
     
 
 def display_plus(s):
@@ -108,7 +154,13 @@ def matchup_prob(matchup_list):
 # pivot_all has Team as index and columns like "Best Record", "Last undefeated", "Last winless"
 # entries in pivot_all are probabilities
 # matchup_list is a list of the different super bowl exact matchups, listed with NFC team first
-def compare_market(raw_data, champ_data, pivot_all, matchup_list):
+# win_dct is a dictionary with keys team abbreviations and values dictionaries of exact win total occurrences
+# like "ARI":{
+# "0":0
+# "1":0
+# "2":0
+# ... (Are the keys really strings?)
+def compare_market(raw_data, champ_data, pivot_all, matchup_list, win_dct):
     market = pd.read_csv("data/markets.csv")
     market = market[(market["odds"].notna()) & (market["team"].notna())].copy()
     market.rename({"market": "raw_market"}, axis=1, inplace=True)
@@ -119,6 +171,15 @@ def compare_market(raw_data, champ_data, pivot_all, matchup_list):
     stage_dct = {}
     for stage in champ_data["Stage"].unique():
         stage_dct[stage] = make_stage_series(champ_data, stage)
+
+    total_count = len(matchup_list)
+    # going from raw counts to probabilities
+    # doesn't work to count for example ARI wins, since there might be ties
+    win_prob_dct = {
+        team: {
+            k: v/total_count for k,v in win_dct[team].items()
+        } for team in win_dct.keys()
+    }
     
     ser_sb = stage_dct["Win Super Bowl"]
     ser_lose = stage_dct["Lose in Super Bowl"]
@@ -131,6 +192,7 @@ def compare_market(raw_data, champ_data, pivot_all, matchup_list):
         "sb": ser_sb,
         "conf": ser_conf,
         "most wins": pivot_all["Best Record"],
+        "wins": win_prob_dct,
         "undefeated": pivot_all["Last undefeated"],
         "winless": pivot_all["Last winless"],
         "matchup": ser_matchup

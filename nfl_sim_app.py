@@ -359,7 +359,7 @@ if sim_button or ("rc" in st.session_state):
     st.session_state['conference_chart'] = conference_chart
     st.session_state['superbowl_chart'] = superbowl_chart
     st.session_state['best_chart'] = best_chart
-    st.session_state['raw_data'] = compare_market(raw_data, champ_data, pivot_all, matchup_list)
+    st.session_state['raw_data'] = compare_market(raw_data, champ_data, pivot_all, matchup_list, win_dict)
     st.session_state['full_standings'] = playoff_full
     st.session_state['pivot'] = pivot_all
 
