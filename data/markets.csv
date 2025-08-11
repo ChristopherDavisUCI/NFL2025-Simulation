@@ -1,423 +1,1383 @@
-team,result,odds,date,site,market
-ARI,o8.5,-139,Aug09,bookmaker,wins
-ARI,u8.5,122,Aug09,bookmaker,wins
-ARI,o9.5,146,Aug09,bookmaker,wins
-ARI,u9.5,-181,Aug09,bookmaker,wins
-ATL,o6.5,-300,Aug09,bookmaker,wins
-ATL,u6.5,233,Aug09,bookmaker,wins
-ATL,o7.5,-142,Aug09,bookmaker,wins
-ATL,u7.5,127,Aug09,bookmaker,wins
-ATL,o8.5,139,Aug09,bookmaker,wins
-ATL,u8.5,-171,Aug09,bookmaker,wins
-BAL,o10.5,-285,Aug09,bookmaker,wins
-BAL,u10.5,223,Aug09,bookmaker,wins
-BAL,o11.5,-130,Aug09,bookmaker,wins
-BAL,u11.5,113,Aug09,bookmaker,wins
-BAL,o12.5,168,Aug09,bookmaker,wins
-BAL,u12.5,-210,Aug09,bookmaker,wins
-CAR,o5.5,-277,Aug09,bookmaker,wins
-CAR,u5.5,217,Aug09,bookmaker,wins
-CAR,o6.5,-128,Aug09,bookmaker,wins
-CAR,u6.5,111,Aug09,bookmaker,wins
-CAR,o7.5,148,Aug09,bookmaker,wins
-CAR,u7.5,-183,Aug09,bookmaker,wins
-CHI,o7.5,-145,Aug09,bookmaker,wins
-CHI,u7.5,118,Aug09,bookmaker,wins
-CHI,o8.5,144,Aug09,bookmaker,wins
-CHI,u8.5,-160,Aug09,bookmaker,wins
-CHI,o9.5,267,Aug09,bookmaker,wins
-CHI,u9.5,-350,Aug09,bookmaker,wins
-CIN,o8.5,-236,Aug09,bookmaker,wins
-CIN,u8.5,188,Aug09,bookmaker,wins
-CIN,o9.5,-110,Aug09,bookmaker,wins
-CIN,u9.5,-106,Aug09,bookmaker,wins
-CIN,o10.5,160,Aug09,bookmaker,wins
-CIN,u10.5,-199,Aug09,bookmaker,wins
-CLE,o4.5,-171,Aug09,bookmaker,wins
-CLE,u4.5,139,Aug09,bookmaker,wins
-CLE,o5.5,132,Aug09,bookmaker,wins
-CLE,u5.5,-148,Aug09,bookmaker,wins
-CLE,o6.5,261,Aug09,bookmaker,wins
-CLE,u6.5,-340,Aug09,bookmaker,wins
-DAL,o6.5,-300,Aug09,bookmaker,wins
-DAL,u6.5,233,Aug09,bookmaker,wins
-DAL,o7.5,-146,Aug09,bookmaker,wins
-DAL,u7.5,130,Aug09,bookmaker,wins
-DAL,o8.5,135,Aug09,bookmaker,wins
-DAL,u8.5,-167,Aug09,bookmaker,wins
-DEN,o8.5,-200,Aug09,bookmaker,wins
-DEN,u8.5,161,Aug09,bookmaker,wins
-DEN,o9.5,-109,Aug09,bookmaker,wins
-DEN,u9.5,-107,Aug09,bookmaker,wins
-DEN,o10.5,200,Aug09,bookmaker,wins
-DEN,u10.5,-253,Aug09,bookmaker,wins
-DET,o9.5,-186,Aug09,bookmaker,wins
-DET,u9.5,150,Aug09,bookmaker,wins
-DET,o10.5,118,Aug09,bookmaker,wins
-DET,u10.5,-134,Aug09,bookmaker,wins
-DET,o11.5,230,Aug09,bookmaker,wins
-DET,u11.5,-295,Aug09,bookmaker,wins
-GB,o8.5,-233,Aug09,bookmaker,wins
-GB,u8.5,185,Aug09,bookmaker,wins
-GB,o9.5,-128,Aug09,bookmaker,wins
-GB,u9.5,112,Aug09,bookmaker,wins
-GB,o10.5,159,Aug09,bookmaker,wins
-GB,u10.5,-198,Aug09,bookmaker,wins
-IND,o6.5,-250,Aug09,bookmaker,wins
-IND,u6.5,198,Aug09,bookmaker,wins
-IND,o7.5,-129,Aug09,bookmaker,wins
-IND,u7.5,113,Aug09,bookmaker,wins
-IND,o8.5,161,Aug09,bookmaker,wins
-IND,u8.5,-200,Aug09,bookmaker,wins
-JAX,o6.5,-260,Aug09,bookmaker,wins
-JAX,u6.5,205,Aug09,bookmaker,wins
-JAX,o7.5,-134,Aug09,bookmaker,wins
-JAX,u7.5,118,Aug09,bookmaker,wins
-JAX,o8.5,172,Aug09,bookmaker,wins
-JAX,u8.5,-215,Aug09,bookmaker,wins
-KC,o10.5,-205,Aug09,bookmaker,wins
-KC,u10.5,165,Aug09,bookmaker,wins
-KC,o11.5,110,Aug09,bookmaker,wins
-KC,u11.5,-127,Aug09,bookmaker,wins
-KC,o12.5,223,Aug09,bookmaker,wins
-KC,u12.5,-285,Aug09,bookmaker,wins
-LV,o5.5,-320,Aug09,bookmaker,wins
-LV,u5.5,248,Aug09,bookmaker,wins
-LV,o6.5,-157,Aug09,bookmaker,wins
-LV,u6.5,141,Aug09,bookmaker,wins
-LV,o7.5,124,Aug09,bookmaker,wins
-LV,u7.5,-152,Aug09,bookmaker,wins
-LAC,o8.5,-249,Aug09,bookmaker,wins
-LAC,u8.5,197,Aug09,bookmaker,wins
-LAC,o9.5,-119,Aug09,bookmaker,wins
-LAC,u9.5,103,Aug09,bookmaker,wins
-LAC,o10.5,177,Aug09,bookmaker,wins
-LAC,u10.5,-222,Aug09,bookmaker,wins
-LA,o8.5,-260,Aug09,bookmaker,wins
-LA,u8.5,205,Aug09,bookmaker,wins
-LA,o9.5,-142,Aug09,bookmaker,wins
-LA,u9.5,126,Aug09,bookmaker,wins
-LA,o10.5,149,Aug09,bookmaker,wins
-LA,u10.5,-184,Aug09,bookmaker,wins
-MIA,o7.5,-124,Aug09,bookmaker,wins
-MIA,u7.5,101,Aug09,bookmaker,wins
-MIA,o8.5,174,Aug09,bookmaker,wins
-MIA,u8.5,-197,Aug09,bookmaker,wins
-MIA,o9.5,328,Aug09,bookmaker,wins
-MIA,u9.5,-445,Aug09,bookmaker,wins
-NE,o6.5,-372,Aug09,bookmaker,wins
-NE,u6.5,282,Aug09,bookmaker,wins
-NE,o7.5,-148,Aug09,bookmaker,wins
-NE,u7.5,132,Aug09,bookmaker,wins
-NE,o8.5,125,Aug09,bookmaker,wins
-NE,u8.5,-153,Aug09,bookmaker,wins
-NO,o4.5,-157,Aug09,bookmaker,wins
-NO,u4.5,128,Aug09,bookmaker,wins
-NO,o5.5,149,Aug09,bookmaker,wins
-NO,u5.5,-166,Aug09,bookmaker,wins
-NO,o6.5,267,Aug09,bookmaker,wins
-NO,u6.5,-350,Aug09,bookmaker,wins
-NYJ,o4.5,-318,Aug09,bookmaker,wins
-NYJ,u4.5,246,Aug09,bookmaker,wins
-NYJ,o5.5,-140,Aug09,bookmaker,wins
-NYJ,u5.5,124,Aug09,bookmaker,wins
-NYJ,o6.5,122,Aug09,bookmaker,wins
-NYJ,u6.5,-150,Aug09,bookmaker,wins
-PHI,o10.5,-186,Aug09,bookmaker,wins
-PHI,u10.5,160,Aug09,bookmaker,wins
-PHI,o11.5,123,Aug09,bookmaker,wins
-PHI,u11.5,-139,Aug09,bookmaker,wins
-PHI,o12.5,242,Aug09,bookmaker,wins
-PHI,u12.5,-313,Aug09,bookmaker,wins
-PIT,o7.5,-246,Aug09,bookmaker,wins
-PIT,u7.5,195,Aug09,bookmaker,wins
-PIT,o8.5,-132,Aug09,bookmaker,wins
-PIT,u8.5,116,Aug09,bookmaker,wins
-PIT,o9.5,156,Aug09,bookmaker,wins
-PIT,u9.5,-193,Aug09,bookmaker,wins
-SF,o9.5,-245,Aug09,bookmaker,wins
-SF,u9.5,194,Aug09,bookmaker,wins
-SF,o10.5,102,Aug09,bookmaker,wins
-SF,u10.5,-118,Aug09,bookmaker,wins
-SF,o11.5,207,Aug09,bookmaker,wins
-SF,u11.5,-262,Aug09,bookmaker,wins
-SEA,o7.5,-147,Aug09,bookmaker,wins
-SEA,u7.5,120,Aug09,bookmaker,wins
-SEA,o8.5,141,Aug09,bookmaker,wins
-SEA,u8.5,-157,Aug09,bookmaker,wins
-SEA,o9.5,247,Aug09,bookmaker,wins
-SEA,u9.5,-320,Aug09,bookmaker,wins
-TB,o8.5,-202,Aug09,bookmaker,wins
-TB,u8.5,163,Aug09,bookmaker,wins
-TB,o9.5,100,Aug09,bookmaker,wins
-TB,u9.5,-116,Aug09,bookmaker,wins
-TB,o10.5,205,Aug09,bookmaker,wins
-TB,u10.5,-260,Aug09,bookmaker,wins
-TEN,o4.5,-330,Aug09,bookmaker,wins
-TEN,u4.5,254,Aug09,bookmaker,wins
-TEN,o5.5,-140,Aug09,bookmaker,wins
-TEN,u5.5,124,Aug09,bookmaker,wins
-TEN,o6.5,142,Aug09,bookmaker,wins
-TEN,u6.5,-175,Aug09,bookmaker,wins
-WAS,o8.5,-233,Aug09,bookmaker,wins
-WAS,u8.5,186,Aug09,bookmaker,wins
-WAS,o9.5,-115,Aug09,bookmaker,wins
-WAS,u9.5,100,Aug09,bookmaker,wins
-WAS,o10.5,192,Aug09,bookmaker,wins
-WAS,u10.5,-242,Aug09,bookmaker,wins
-ARI,o6.5,-400,Aug09,betonline,wins
-ARI,u6.5,300,Aug09,betonline,wins
-ARI,o10.5,225,Aug09,betonline,wins
-ARI,u10.5,-285,Aug09,betonline,wins
-ATL,o5.5,-450,Aug09,betonline,wins
-ATL,u5.5,325,Aug09,betonline,wins
-ATL,o9.5,220,Aug09,betonline,wins
-ATL,u9.5,-280,Aug09,betonline,wins
-BAL,o9.5,-400,Aug09,betonline,wins
-BAL,u9.5,300,Aug09,betonline,wins
-BAL,o13.5,300,Aug09,betonline,wins
-BAL,u13.5,-400,Aug09,betonline,wins
-BUF,o9.5,-500,Aug09,betonline,wins
-BUF,u9.5,350,Aug09,betonline,wins
-BUF,o13.5,240,Aug09,betonline,wins
-BUF,u13.5,-300,Aug09,betonline,wins
-CAR,o4.5,-500,Aug09,betonline,wins
-CAR,u4.5,350,Aug09,betonline,wins
-CAR,o8.5,195,Aug09,betonline,wins
-CAR,u8.5,-250,Aug09,betonline,wins
-CHI,o6.5,-230,Aug09,betonline,wins
-CHI,u6.5,190,Aug09,betonline,wins
-CHI,o10.5,350,Aug09,betonline,wins
-CHI,u10.5,-500,Aug09,betonline,wins
-CIN,o7.5,-400,Aug09,betonline,wins
-CIN,u7.5,300,Aug09,betonline,wins
-CIN,o11.5,275,Aug09,betonline,wins
-CIN,u11.5,-350,Aug09,betonline,wins
-CLE,o3.5,-280,Aug09,betonline,wins
-CLE,u3.5,220,Aug09,betonline,wins
-CLE,o7.5,375,Aug09,betonline,wins
-CLE,u7.5,-550,Aug09,betonline,wins
-DAL,o5.5,-400,Aug09,betonline,wins
-DAL,u5.5,300,Aug09,betonline,wins
-DAL,o9.5,200,Aug09,betonline,wins
-DAL,u9.5,-260,Aug09,betonline,wins
-DEN,o7.5,-325,Aug09,betonline,wins
-DEN,u7.5,250,Aug09,betonline,wins
-DEN,o11.5,250,Aug09,betonline,wins
-DEN,u11.5,-325,Aug09,betonline,wins
-DET,o8.5,-230,Aug09,betonline,wins
-DET,u8.5,190,Aug09,betonline,wins
-DET,o12.5,350,Aug09,betonline,wins
-DET,u12.5,-500,Aug09,betonline,wins
-GB,o7.5,-300,Aug09,betonline,wins
-GB,u7.5,240,Aug09,betonline,wins
-GB,o11.5,250,Aug09,betonline,wins
-GB,u11.5,-325,Aug09,betonline,wins
-HOU,o7.5,-270,Aug09,betonline,wins
-HOU,u7.5,210,Aug09,betonline,wins
-HOU,o11.5,325,Aug09,betonline,wins
-HOU,u11.5,-450,Aug09,betonline,wins
-IND,o5.5,-325,Aug09,betonline,wins
-IND,u5.5,250,Aug09,betonline,wins
-IND,o9.5,275,Aug09,betonline,wins
-IND,u9.5,-350,Aug09,betonline,wins
-JAX,o5.5,-400,Aug09,betonline,wins
-JAX,u5.5,300,Aug09,betonline,wins
-JAX,o9.5,205,Aug09,betonline,wins
-JAX,u9.5,-265,Aug09,betonline,wins
-KC,o9.5,-290,Aug09,betonline,wins
-KC,u9.5,230,Aug09,betonline,wins
-KC,o13.5,350,Aug09,betonline,wins
-KC,u13.5,-500,Aug09,betonline,wins
-LV,o5.5,-250,Aug09,betonline,wins
-LV,u5.5,195,Aug09,betonline,wins
-LV,o9.5,375,Aug09,betonline,wins
-LV,u9.5,-550,Aug09,betonline,wins
-LAC,o7.5,-300,Aug09,betonline,wins
-LAC,u7.5,240,Aug09,betonline,wins
-LAC,o11.5,250,Aug09,betonline,wins
-LAC,u11.5,-325,Aug09,betonline,wins
-LA,o7.5,-400,Aug09,betonline,wins
-LA,u7.5,300,Aug09,betonline,wins
-LA,o11.5,220,Aug09,betonline,wins
-LA,u11.5,-280,Aug09,betonline,wins
-MIA,o6.5,-180,Aug09,betonline,wins
-MIA,u6.5,150,Aug09,betonline,wins
-MIA,o10.5,450,Aug09,betonline,wins
-MIA,u10.5,-700,Aug09,betonline,wins
-MIN,o6.5,-400,Aug09,betonline,wins
-MIN,u6.5,300,Aug09,betonline,wins
-MIN,o10.5,190,Aug09,betonline,wins
-MIN,u10.5,-230,Aug09,betonline,wins
-NE,o5.5,-700,Aug09,betonline,wins
-NE,u5.5,450,Aug09,betonline,wins
-NE,o9.5,170,Aug09,betonline,wins
-NE,u9.5,-210,Aug09,betonline,wins
-NO,o3.5,-230,Aug09,betonline,wins
-NO,u3.5,190,Aug09,betonline,wins
-NO,o7.5,325,Aug09,betonline,wins
-NO,u7.5,-450,Aug09,betonline,wins
-NYG,o3.5,-350,Aug09,betonline,wins
-NYG,u3.5,275,Aug09,betonline,wins
-NYG,o7.5,275,Aug09,betonline,wins
-NYG,u7.5,-350,Aug09,betonline,wins
-NYJ,o3.5,-600,Aug09,betonline,wins
-NYJ,u3.5,400,Aug09,betonline,wins
-NYJ,o7.5,205,Aug09,betonline,wins
-NYJ,u7.5,-265,Aug09,betonline,wins
-PHI,o9.5,-260,Aug09,betonline,wins
-PHI,u9.5,200,Aug09,betonline,wins
-PHI,o13.5,375,Aug09,betonline,wins
-PHI,u13.5,-550,Aug09,betonline,wins
-PIT,o6.5,-300,Aug09,betonline,wins
-PIT,u6.5,240,Aug09,betonline,wins
-PIT,o10.5,275,Aug09,betonline,wins
-PIT,u10.5,-350,Aug09,betonline,wins
-SF,o8.5,-325,Aug09,betonline,wins
-SF,u8.5,250,Aug09,betonline,wins
-SF,o12.5,275,Aug09,betonline,wins
-SF,u12.5,-350,Aug09,betonline,wins
-SEA,o5.5,-500,Aug09,betonline,wins
-SEA,u5.5,350,Aug09,betonline,wins
-SEA,o9.5,200,Aug09,betonline,wins
-SEA,u9.5,-260,Aug09,betonline,wins
-TB,o7.5,-325,Aug09,betonline,wins
-TB,u7.5,250,Aug09,betonline,wins
-TB,o11.5,275,Aug09,betonline,wins
-TB,u11.5,-350,Aug09,betonline,wins
-TEN,o3.5,-650,Aug09,betonline,wins
-TEN,u3.5,425,Aug09,betonline,wins
-TEN,o7.5,200,Aug09,betonline,wins
-TEN,u7.5,-260,Aug09,betonline,wins
-WAS,o7.5,-325,Aug09,betonline,wins
-WAS,u7.5,250,Aug09,betonline,wins
-WAS,o11.5,275,Aug09,betonline,wins
-WAS,u11.5,-350,Aug09,betonline,wins
-ARI,o6.5,-400,Aug09,betonline,wins
-ARI,u6.5,300,Aug09,betonline,wins
-ARI,o10.5,225,Aug09,betonline,wins
-ARI,u10.5,-285,Aug09,betonline,wins
-ATL,o5.5,-450,Aug09,betonline,wins
-ATL,u5.5,325,Aug09,betonline,wins
-ATL,o9.5,220,Aug09,betonline,wins
-ATL,u9.5,-280,Aug09,betonline,wins
-BAL,o9.5,-400,Aug09,betonline,wins
-BAL,u9.5,300,Aug09,betonline,wins
-BAL,o13.5,300,Aug09,betonline,wins
-BAL,u13.5,-400,Aug09,betonline,wins
-BUF,o9.5,-500,Aug09,betonline,wins
-BUF,u9.5,350,Aug09,betonline,wins
-BUF,o13.5,240,Aug09,betonline,wins
-BUF,u13.5,-300,Aug09,betonline,wins
-CAR,o4.5,-500,Aug09,betonline,wins
-CAR,u4.5,350,Aug09,betonline,wins
-CAR,o8.5,195,Aug09,betonline,wins
-CAR,u8.5,-250,Aug09,betonline,wins
-CHI,o6.5,-230,Aug09,betonline,wins
-CHI,u6.5,190,Aug09,betonline,wins
-CHI,o10.5,350,Aug09,betonline,wins
-CHI,u10.5,-500,Aug09,betonline,wins
-CIN,o7.5,-400,Aug09,betonline,wins
-CIN,u7.5,300,Aug09,betonline,wins
-CIN,o11.5,275,Aug09,betonline,wins
-CIN,u11.5,-350,Aug09,betonline,wins
-CLE,o3.5,-280,Aug09,betonline,wins
-CLE,u3.5,220,Aug09,betonline,wins
-CLE,o7.5,375,Aug09,betonline,wins
-CLE,u7.5,-550,Aug09,betonline,wins
-DAL,o5.5,-400,Aug09,betonline,wins
-DAL,u5.5,300,Aug09,betonline,wins
-DAL,o9.5,200,Aug09,betonline,wins
-DAL,u9.5,-260,Aug09,betonline,wins
-DEN,o7.5,-325,Aug09,betonline,wins
-DEN,u7.5,250,Aug09,betonline,wins
-DEN,o11.5,250,Aug09,betonline,wins
-DEN,u11.5,-325,Aug09,betonline,wins
-DET,o8.5,-230,Aug09,betonline,wins
-DET,u8.5,190,Aug09,betonline,wins
-DET,o12.5,350,Aug09,betonline,wins
-DET,u12.5,-500,Aug09,betonline,wins
-GB,o7.5,-300,Aug09,betonline,wins
-GB,u7.5,240,Aug09,betonline,wins
-GB,o11.5,250,Aug09,betonline,wins
-GB,u11.5,-325,Aug09,betonline,wins
-HOU,o7.5,-270,Aug09,betonline,wins
-HOU,u7.5,210,Aug09,betonline,wins
-HOU,o11.5,325,Aug09,betonline,wins
-HOU,u11.5,-450,Aug09,betonline,wins
-IND,o5.5,-325,Aug09,betonline,wins
-IND,u5.5,250,Aug09,betonline,wins
-IND,o9.5,275,Aug09,betonline,wins
-IND,u9.5,-350,Aug09,betonline,wins
-JAX,o5.5,-400,Aug09,betonline,wins
-JAX,u5.5,300,Aug09,betonline,wins
-JAX,o9.5,205,Aug09,betonline,wins
-JAX,u9.5,-265,Aug09,betonline,wins
-KC,o9.5,-290,Aug09,betonline,wins
-KC,u9.5,230,Aug09,betonline,wins
-KC,o13.5,350,Aug09,betonline,wins
-KC,u13.5,-500,Aug09,betonline,wins
-LV,o5.5,-250,Aug09,betonline,wins
-LV,u5.5,195,Aug09,betonline,wins
-LV,o9.5,375,Aug09,betonline,wins
-LV,u9.5,-550,Aug09,betonline,wins
-LAC,o7.5,-300,Aug09,betonline,wins
-LAC,u7.5,240,Aug09,betonline,wins
-LAC,o11.5,250,Aug09,betonline,wins
-LAC,u11.5,-325,Aug09,betonline,wins
-LA,o7.5,-400,Aug09,betonline,wins
-LA,u7.5,300,Aug09,betonline,wins
-LA,o11.5,220,Aug09,betonline,wins
-LA,u11.5,-280,Aug09,betonline,wins
-MIA,o6.5,-180,Aug09,betonline,wins
-MIA,u6.5,150,Aug09,betonline,wins
-MIA,o10.5,450,Aug09,betonline,wins
-MIA,u10.5,-700,Aug09,betonline,wins
-MIN,o6.5,-400,Aug09,betonline,wins
-MIN,u6.5,300,Aug09,betonline,wins
-MIN,o10.5,190,Aug09,betonline,wins
-MIN,u10.5,-230,Aug09,betonline,wins
-NE,o5.5,-700,Aug09,betonline,wins
-NE,u5.5,450,Aug09,betonline,wins
-NE,o9.5,170,Aug09,betonline,wins
-NE,u9.5,-210,Aug09,betonline,wins
-NO,o3.5,-230,Aug09,betonline,wins
-NO,u3.5,190,Aug09,betonline,wins
-NO,o7.5,325,Aug09,betonline,wins
-NO,u7.5,-450,Aug09,betonline,wins
-NYG,o3.5,-350,Aug09,betonline,wins
-NYG,u3.5,275,Aug09,betonline,wins
-NYG,o7.5,275,Aug09,betonline,wins
-NYG,u7.5,-350,Aug09,betonline,wins
-NYJ,o3.5,-600,Aug09,betonline,wins
-NYJ,u3.5,400,Aug09,betonline,wins
-NYJ,o7.5,205,Aug09,betonline,wins
-NYJ,u7.5,-265,Aug09,betonline,wins
-PHI,o9.5,-260,Aug09,betonline,wins
-PHI,u9.5,200,Aug09,betonline,wins
-PHI,o13.5,375,Aug09,betonline,wins
-PHI,u13.5,-550,Aug09,betonline,wins
-PIT,o6.5,-300,Aug09,betonline,wins
-PIT,u6.5,240,Aug09,betonline,wins
-PIT,o10.5,275,Aug09,betonline,wins
-PIT,u10.5,-350,Aug09,betonline,wins
-SF,o8.5,-325,Aug09,betonline,wins
-SF,u8.5,250,Aug09,betonline,wins
-SF,o12.5,275,Aug09,betonline,wins
-SF,u12.5,-350,Aug09,betonline,wins
-SEA,o5.5,-500,Aug09,betonline,wins
-SEA,u5.5,350,Aug09,betonline,wins
-SEA,o9.5,200,Aug09,betonline,wins
-SEA,u9.5,-260,Aug09,betonline,wins
-TB,o7.5,-325,Aug09,betonline,wins
-TB,u7.5,250,Aug09,betonline,wins
-TB,o11.5,275,Aug09,betonline,wins
-TB,u11.5,-350,Aug09,betonline,wins
-TEN,o3.5,-650,Aug09,betonline,wins
-TEN,u3.5,425,Aug09,betonline,wins
-TEN,o7.5,200,Aug09,betonline,wins
-TEN,u7.5,-260,Aug09,betonline,wins
-WAS,o7.5,-325,Aug09,betonline,wins
-WAS,u7.5,250,Aug09,betonline,wins
-WAS,o11.5,275,Aug09,betonline,wins
-WAS,u11.5,-350,Aug09,betonline,wins
+team,odds,date,site,division,conference,market,result
+BUF,-400.0,Aug11,bookmaker,AFC East,AFC,division,
+MIA,800.0,Aug11,bookmaker,AFC East,AFC,division,
+NE,606.0,Aug11,bookmaker,AFC East,AFC,division,
+NYJ,2000.0,Aug11,bookmaker,AFC East,AFC,division,
+BAL,-158.0,Aug11,bookmaker,AFC North,AFC,division,
+CIN,271.0,Aug11,bookmaker,AFC North,AFC,division,
+CLE,2653.0,Aug11,bookmaker,AFC North,AFC,division,
+PIT,450.0,Aug11,bookmaker,AFC North,AFC,division,
+HOU,-112.0,Aug11,bookmaker,AFC South,AFC,division,
+IND,340.0,Aug11,bookmaker,AFC South,AFC,division,
+JAX,300.0,Aug11,bookmaker,AFC South,AFC,division,
+TEN,950.0,Aug11,bookmaker,AFC South,AFC,division,
+DEN,292.0,Aug11,bookmaker,AFC West,AFC,division,
+KC,-128.0,Aug11,bookmaker,AFC West,AFC,division,
+LV,1936.0,Aug11,bookmaker,AFC West,AFC,division,
+LAC,326.0,Aug11,bookmaker,AFC West,AFC,division,
+DAL,,Aug11,bookmaker,NFC East,NFC,division,
+NYG,,Aug11,bookmaker,NFC East,NFC,division,
+PHI,,Aug11,bookmaker,NFC East,NFC,division,
+WAS,,Aug11,bookmaker,NFC East,NFC,division,
+CHI,502.0,Aug11,bookmaker,NFC North,NFC,division,
+DET,144.0,Aug11,bookmaker,NFC North,NFC,division,
+GB,243.0,Aug11,bookmaker,NFC North,NFC,division,
+MIN,329.0,Aug11,bookmaker,NFC North,NFC,division,
+ATL,229.0,Aug11,bookmaker,NFC South,NFC,division,
+CAR,402.0,Aug11,bookmaker,NFC South,NFC,division,
+NO,1307.0,Aug11,bookmaker,NFC South,NFC,division,
+TB,-111.0,Aug11,bookmaker,NFC South,NFC,division,
+ARI,425.0,Aug11,bookmaker,NFC West,NFC,division,
+LA,171.0,Aug11,bookmaker,NFC West,NFC,division,
+SF,164.0,Aug11,bookmaker,NFC West,NFC,division,
+SEA,515.0,Aug11,bookmaker,NFC West,NFC,division,
+BAL,321.0,Aug11,bookmaker,AFC North,AFC,conference,
+BUF,306.0,Aug11,bookmaker,AFC East,AFC,conference,
+CIN,977.0,Aug11,bookmaker,AFC North,AFC,conference,
+CLE,14974.0,Aug11,bookmaker,AFC North,AFC,conference,
+DEN,1623.0,Aug11,bookmaker,AFC West,AFC,conference,
+HOU,1626.0,Aug11,bookmaker,AFC South,AFC,conference,
+IND,7651.0,Aug11,bookmaker,AFC South,AFC,conference,
+JAX,3157.0,Aug11,bookmaker,AFC South,AFC,conference,
+KC,378.0,Aug11,bookmaker,AFC West,AFC,conference,
+LV,5986.0,Aug11,bookmaker,AFC West,AFC,conference,
+LAC,1251.0,Aug11,bookmaker,AFC West,AFC,conference,
+MIA,3508.0,Aug11,bookmaker,AFC East,AFC,conference,
+NE,3921.0,Aug11,bookmaker,AFC East,AFC,conference,
+NYJ,12002.0,Aug11,bookmaker,AFC East,AFC,conference,
+PIT,1428.0,Aug11,bookmaker,AFC North,AFC,conference,
+TEN,14668.0,Aug11,bookmaker,AFC South,AFC,conference,
+ARI,2615.0,Aug11,bookmaker,NFC West,NFC,conference,
+ATL,2929.0,Aug11,bookmaker,NFC South,NFC,conference,
+CAR,8195.0,Aug11,bookmaker,NFC South,NFC,conference,
+CHI,2043.0,Aug11,bookmaker,NFC North,NFC,conference,
+DAL,2196.0,Aug11,bookmaker,NFC East,NFC,conference,
+DET,518.0,Aug11,bookmaker,NFC North,NFC,conference,
+GB,844.0,Aug11,bookmaker,NFC North,NFC,conference,
+LA,809.0,Aug11,bookmaker,NFC West,NFC,conference,
+MIN,1249.0,Aug11,bookmaker,NFC North,NFC,conference,
+NO,14000.0,Aug11,bookmaker,NFC South,NFC,conference,
+NYG,11649.0,Aug11,bookmaker,NFC East,NFC,conference,
+PHI,310.0,Aug11,bookmaker,NFC East,NFC,conference,
+SF,920.0,Aug11,bookmaker,NFC West,NFC,conference,
+SEA,2654.0,Aug11,bookmaker,NFC West,NFC,conference,
+TB,1396.0,Aug11,bookmaker,NFC South,NFC,conference,
+WAS,890.0,Aug11,bookmaker,NFC East,NFC,conference,
+ARI,6746.0,Aug11,bookmaker,NFC West,NFC,super bowl,
+ATL,6849.0,Aug11,bookmaker,NFC South,NFC,super bowl,
+BAL,656.0,Aug11,bookmaker,AFC North,AFC,super bowl,
+BUF,610.0,Aug11,bookmaker,AFC East,AFC,super bowl,
+CAR,16574.0,Aug11,bookmaker,NFC South,NFC,super bowl,
+CHI,4517.0,Aug11,bookmaker,NFC North,NFC,super bowl,
+CIN,2135.0,Aug11,bookmaker,AFC North,AFC,super bowl,
+CLE,26096.0,Aug11,bookmaker,AFC North,AFC,super bowl,
+DAL,4819.0,Aug11,bookmaker,NFC East,NFC,super bowl,
+DEN,3500.0,Aug11,bookmaker,AFC West,AFC,super bowl,
+DET,1015.0,Aug11,bookmaker,NFC North,NFC,super bowl,
+GB,1798.0,Aug11,bookmaker,NFC North,NFC,super bowl,
+HOU,3162.0,Aug11,bookmaker,AFC South,AFC,super bowl,
+IND,15131.0,Aug11,bookmaker,AFC South,AFC,super bowl,
+JAX,7526.0,Aug11,bookmaker,AFC South,AFC,super bowl,
+KC,756.0,Aug11,bookmaker,AFC West,AFC,super bowl,
+LV,12765.0,Aug11,bookmaker,AFC West,AFC,super bowl,
+LAC,2658.0,Aug11,bookmaker,AFC West,AFC,super bowl,
+LA,1611.0,Aug11,bookmaker,NFC West,NFC,super bowl,
+MIA,7028.0,Aug11,bookmaker,AFC East,AFC,super bowl,
+MIN,2620.0,Aug11,bookmaker,NFC North,NFC,super bowl,
+NE,7608.0,Aug11,bookmaker,AFC East,AFC,super bowl,
+NO,26000.0,Aug11,bookmaker,NFC South,NFC,super bowl,
+NYG,20664.0,Aug11,bookmaker,NFC East,NFC,super bowl,
+NYJ,23210.0,Aug11,bookmaker,AFC East,AFC,super bowl,
+PHI,700.0,Aug11,bookmaker,NFC East,NFC,super bowl,
+PIT,2961.0,Aug11,bookmaker,AFC North,AFC,super bowl,
+SF,1855.0,Aug11,bookmaker,NFC West,NFC,super bowl,
+SEA,5320.0,Aug11,bookmaker,NFC West,NFC,super bowl,
+TB,3313.0,Aug11,bookmaker,NFC South,NFC,super bowl,
+TEN,30000.0,Aug11,bookmaker,AFC South,AFC,super bowl,
+WAS,1757.0,Aug11,bookmaker,NFC East,NFC,super bowl,
+ARI,130.0,Aug11,bookmaker,,,make playoffs,Yes
+ARI,-164.0,Aug11,bookmaker,,,make playoffs,No
+ATL,135.0,Aug11,bookmaker,,,make playoffs,Yes
+ATL,-171.0,Aug11,bookmaker,,,make playoffs,No
+BAL,-638.0,Aug11,bookmaker,,,make playoffs,Yes
+BAL,425.0,Aug11,bookmaker,,,make playoffs,No
+BUF,-906.0,Aug11,bookmaker,,,make playoffs,Yes
+BUF,548.0,Aug11,bookmaker,,,make playoffs,No
+CAR,267.0,Aug11,bookmaker,,,make playoffs,Yes
+CAR,-360.0,Aug11,bookmaker,,,make playoffs,No
+CHI,173.0,Aug11,bookmaker,,,make playoffs,Yes
+CHI,-222.0,Aug11,bookmaker,,,make playoffs,No
+CIN,-124.0,Aug11,bookmaker,,,make playoffs,Yes
+CIN,103.0,Aug11,bookmaker,,,make playoffs,No
+CLE,711.0,Aug11,bookmaker,,,make playoffs,Yes
+CLE,-1100.0,Aug11,bookmaker,,,make playoffs,No
+DAL,187.0,Aug11,bookmaker,,,make playoffs,Yes
+DAL,-241.0,Aug11,bookmaker,,,make playoffs,No
+DEN,-132.0,Aug11,bookmaker,,,make playoffs,Yes
+DEN,103.0,Aug11,bookmaker,,,make playoffs,No
+DET,-212.0,Aug11,bookmaker,,,make playoffs,Yes
+DET,166.0,Aug11,bookmaker,,,make playoffs,No
+HOU,-159.0,Aug11,bookmaker,,,make playoffs,Yes
+HOU,139.0,Aug11,bookmaker,,,make playoffs,No
+IND,194.0,Aug11,bookmaker,,,make playoffs,Yes
+IND,-251.0,Aug11,bookmaker,,,make playoffs,No
+JAX,158.0,Aug11,bookmaker,,,make playoffs,Yes
+JAX,-200.0,Aug11,bookmaker,,,make playoffs,No
+LV,305.0,Aug11,bookmaker,,,make playoffs,Yes
+LV,-383.0,Aug11,bookmaker,,,make playoffs,No
+LAC,-156.0,Aug11,bookmaker,,,make playoffs,Yes
+LAC,124.0,Aug11,bookmaker,,,make playoffs,No
+LA,-137.0,Aug11,bookmaker,,,make playoffs,Yes
+LA,117.0,Aug11,bookmaker,,,make playoffs,No
+MIA,225.0,Aug11,bookmaker,,,make playoffs,Yes
+MIA,-273.0,Aug11,bookmaker,,,make playoffs,No
+MIN,-114.0,Aug11,bookmaker,,,make playoffs,Yes
+MIN,-107.0,Aug11,bookmaker,,,make playoffs,No
+NE,162.0,Aug11,bookmaker,,,make playoffs,Yes
+NE,-188.0,Aug11,bookmaker,,,make playoffs,No
+NO,825.0,Aug11,bookmaker,,,make playoffs,Yes
+NO,-1368.0,Aug11,bookmaker,,,make playoffs,No
+NYG,827.0,Aug11,bookmaker,,,make playoffs,Yes
+NYG,-1372.0,Aug11,bookmaker,,,make playoffs,No
+NYJ,581.0,Aug11,bookmaker,,,make playoffs,Yes
+NYJ,-835.0,Aug11,bookmaker,,,make playoffs,No
+PHI,-390.0,Aug11,bookmaker,,,make playoffs,Yes
+PHI,310.0,Aug11,bookmaker,,,make playoffs,No
+PIT,149.0,Aug11,bookmaker,,,make playoffs,Yes
+PIT,-171.0,Aug11,bookmaker,,,make playoffs,No
+SF,-196.0,Aug11,bookmaker,,,make playoffs,Yes
+SF,167.0,Aug11,bookmaker,,,make playoffs,No
+SEA,180.0,Aug11,bookmaker,,,make playoffs,Yes
+SEA,-215.0,Aug11,bookmaker,,,make playoffs,No
+TB,-135.0,Aug11,bookmaker,,,make playoffs,Yes
+TB,115.0,Aug11,bookmaker,,,make playoffs,No
+TEN,416.0,Aug11,bookmaker,,,make playoffs,Yes
+TEN,-550.0,Aug11,bookmaker,,,make playoffs,No
+WAS,-135.0,Aug11,bookmaker,,,make playoffs,Yes
+WAS,115.0,Aug11,bookmaker,,,make playoffs,No
+ARI,-175.0,Aug11,bookmaker,,,stage,Miss playoffs
+ARI,310.0,Aug11,bookmaker,,,stage,Wild card
+ARI,660.0,Aug11,bookmaker,,,stage,Divisional
+ARI,1500.0,Aug11,bookmaker,,,stage,Conference championship
+ARI,4000.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+ARI,7200.0,Aug11,bookmaker,,,stage,Win Super Bowl
+ATL,-157.0,Aug11,bookmaker,,,stage,Miss playoffs
+ATL,240.0,Aug11,bookmaker,,,stage,Wild card
+ATL,650.0,Aug11,bookmaker,,,stage,Divisional
+ATL,2000.0,Aug11,bookmaker,,,stage,Conference championship
+ATL,6000.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+ATL,7000.0,Aug11,bookmaker,,,stage,Win Super Bowl
+BAL,400.0,Aug11,bookmaker,,,stage,Miss playoffs
+BAL,300.0,Aug11,bookmaker,,,stage,Wild card
+BAL,325.0,Aug11,bookmaker,,,stage,Divisional
+BAL,545.0,Aug11,bookmaker,,,stage,Conference championship
+BAL,630.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+BAL,650.0,Aug11,bookmaker,,,stage,Win Super Bowl
+BUF,500.0,Aug11,bookmaker,,,stage,Miss playoffs
+BUF,444.0,Aug11,bookmaker,,,stage,Wild card
+BUF,250.0,Aug11,bookmaker,,,stage,Divisional
+BUF,475.0,Aug11,bookmaker,,,stage,Conference championship
+BUF,575.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+BUF,553.0,Aug11,bookmaker,,,stage,Win Super Bowl
+CAR,450.0,Aug11,bookmaker,,,stage,Wild card
+CAR,1303.0,Aug11,bookmaker,,,stage,Divisional
+CAR,3429.0,Aug11,bookmaker,,,stage,Conference championship
+CAR,9528.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+CAR,13307.0,Aug11,bookmaker,,,stage,Win Super Bowl
+CAR,-448.0,Aug11,bookmaker,,,stage,Miss playoffs
+CHI,-250.0,Aug11,bookmaker,,,stage,Miss playoffs
+CHI,400.0,Aug11,bookmaker,,,stage,Wild card
+CHI,950.0,Aug11,bookmaker,,,stage,Divisional
+CHI,1800.0,Aug11,bookmaker,,,stage,Conference championship
+CHI,3900.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+CHI,4000.0,Aug11,bookmaker,,,stage,Win Super Bowl
+CIN,110.0,Aug11,bookmaker,,,stage,Miss playoffs
+CIN,290.0,Aug11,bookmaker,,,stage,Wild card
+CIN,475.0,Aug11,bookmaker,,,stage,Divisional
+CIN,800.0,Aug11,bookmaker,,,stage,Conference championship
+CIN,1800.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+CIN,2100.0,Aug11,bookmaker,,,stage,Win Super Bowl
+CLE,-1400.0,Aug11,bookmaker,,,stage,Miss playoffs
+CLE,755.0,Aug11,bookmaker,,,stage,Wild card
+CLE,2524.0,Aug11,bookmaker,,,stage,Divisional
+CLE,6680.0,Aug11,bookmaker,,,stage,Conference championship
+CLE,18000.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+CLE,25000.0,Aug11,bookmaker,,,stage,Win Super Bowl
+DAL,-230.0,Aug11,bookmaker,,,stage,Miss playoffs
+DAL,400.0,Aug11,bookmaker,,,stage,Wild card
+DAL,775.0,Aug11,bookmaker,,,stage,Divisional
+DAL,1500.0,Aug11,bookmaker,,,stage,Conference championship
+DAL,4000.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+DAL,4300.0,Aug11,bookmaker,,,stage,Win Super Bowl
+DEN,-103.0,Aug11,bookmaker,,,stage,Miss playoffs
+DEN,254.0,Aug11,bookmaker,,,stage,Wild card
+DEN,482.0,Aug11,bookmaker,,,stage,Divisional
+DEN,1014.0,Aug11,bookmaker,,,stage,Conference championship
+DEN,2841.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+DEN,3351.0,Aug11,bookmaker,,,stage,Win Super Bowl
+DET,160.0,Aug11,bookmaker,,,stage,Miss playoffs
+DET,305.0,Aug11,bookmaker,,,stage,Wild card
+DET,440.0,Aug11,bookmaker,,,stage,Divisional
+DET,800.0,Aug11,bookmaker,,,stage,Conference championship
+DET,1000.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+DET,975.0,Aug11,bookmaker,,,stage,Win Super Bowl
+GB,110.0,Aug11,bookmaker,,,stage,Miss playoffs
+GB,305.0,Aug11,bookmaker,,,stage,Wild card
+GB,400.0,Aug11,bookmaker,,,stage,Divisional
+GB,900.0,Aug11,bookmaker,,,stage,Conference championship
+GB,1800.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+GB,1750.0,Aug11,bookmaker,,,stage,Win Super Bowl
+HOU,120.0,Aug11,bookmaker,,,stage,Miss playoffs
+HOU,245.0,Aug11,bookmaker,,,stage,Wild card
+HOU,380.0,Aug11,bookmaker,,,stage,Divisional
+HOU,900.0,Aug11,bookmaker,,,stage,Conference championship
+HOU,2800.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+HOU,3000.0,Aug11,bookmaker,,,stage,Win Super Bowl
+IND,-260.0,Aug11,bookmaker,,,stage,Miss playoffs
+IND,325.0,Aug11,bookmaker,,,stage,Wild card
+IND,900.0,Aug11,bookmaker,,,stage,Divisional
+IND,2200.0,Aug11,bookmaker,,,stage,Conference championship
+IND,10000.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+IND,15000.0,Aug11,bookmaker,,,stage,Win Super Bowl
+JAX,-200.0,Aug11,bookmaker,,,stage,Miss playoffs
+JAX,300.0,Aug11,bookmaker,,,stage,Wild card
+JAX,750.0,Aug11,bookmaker,,,stage,Divisional
+JAX,1600.0,Aug11,bookmaker,,,stage,Conference championship
+JAX,6800.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+JAX,7200.0,Aug11,bookmaker,,,stage,Win Super Bowl
+KC,339.0,Aug11,bookmaker,,,stage,Miss playoffs
+KC,349.0,Aug11,bookmaker,,,stage,Wild card
+KC,366.0,Aug11,bookmaker,,,stage,Divisional
+KC,450.0,Aug11,bookmaker,,,stage,Conference championship
+KC,475.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+KC,795.0,Aug11,bookmaker,,,stage,Win Super Bowl
+LV,-475.0,Aug11,bookmaker,,,stage,Miss playoffs
+LV,480.0,Aug11,bookmaker,,,stage,Wild card
+LV,1400.0,Aug11,bookmaker,,,stage,Divisional
+LV,3800.0,Aug11,bookmaker,,,stage,Conference championship
+LV,9000.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+LV,12075.0,Aug11,bookmaker,,,stage,Win Super Bowl
+LAC,125.0,Aug11,bookmaker,,,stage,Miss playoffs
+LAC,270.0,Aug11,bookmaker,,,stage,Wild card
+LAC,385.0,Aug11,bookmaker,,,stage,Divisional
+LAC,850.0,Aug11,bookmaker,,,stage,Conference championship
+LAC,2200.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+LAC,2325.0,Aug11,bookmaker,,,stage,Win Super Bowl
+LA,148.0,Aug11,bookmaker,,,stage,Miss playoffs
+LA,278.0,Aug11,bookmaker,,,stage,Wild card
+LA,382.0,Aug11,bookmaker,,,stage,Divisional
+LA,803.0,Aug11,bookmaker,,,stage,Conference championship
+LA,1405.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+LA,1605.0,Aug11,bookmaker,,,stage,Win Super Bowl
+MIA,-201.0,Aug11,bookmaker,,,stage,Miss playoffs
+MIA,315.0,Aug11,bookmaker,,,stage,Wild card
+MIA,700.0,Aug11,bookmaker,,,stage,Divisional
+MIA,2000.0,Aug11,bookmaker,,,stage,Conference championship
+MIA,6800.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+MIA,6500.0,Aug11,bookmaker,,,stage,Win Super Bowl
+MIN,-108.0,Aug11,bookmaker,,,stage,Miss playoffs
+MIN,275.0,Aug11,bookmaker,,,stage,Wild card
+MIN,450.0,Aug11,bookmaker,,,stage,Divisional
+MIN,1400.0,Aug11,bookmaker,,,stage,Conference championship
+MIN,2400.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+MIN,2660.0,Aug11,bookmaker,,,stage,Win Super Bowl
+NE,-189.0,Aug11,bookmaker,,,stage,Miss playoffs
+NE,316.0,Aug11,bookmaker,,,stage,Wild card
+NE,711.0,Aug11,bookmaker,,,stage,Divisional
+NE,1488.0,Aug11,bookmaker,,,stage,Conference championship
+NE,6276.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+NE,7516.0,Aug11,bookmaker,,,stage,Win Super Bowl
+NO,-1200.0,Aug11,bookmaker,,,stage,Miss playoffs
+NO,750.0,Aug11,bookmaker,,,stage,Wild card
+NO,2500.0,Aug11,bookmaker,,,stage,Divisional
+NO,5000.0,Aug11,bookmaker,,,stage,Conference championship
+NO,24000.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+NO,25000.0,Aug11,bookmaker,,,stage,Win Super Bowl
+NYG,-1300.0,Aug11,bookmaker,,,stage,Miss playoffs
+NYG,880.0,Aug11,bookmaker,,,stage,Wild card
+NYG,1800.0,Aug11,bookmaker,,,stage,Divisional
+NYG,4500.0,Aug11,bookmaker,,,stage,Conference championship
+NYG,18000.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+NYG,20000.0,Aug11,bookmaker,,,stage,Win Super Bowl
+NYJ,-750.0,Aug11,bookmaker,,,stage,Miss playoffs
+NYJ,600.0,Aug11,bookmaker,,,stage,Wild card
+NYJ,1800.0,Aug11,bookmaker,,,stage,Divisional
+NYJ,4004.0,Aug11,bookmaker,,,stage,Conference championship
+NYJ,15000.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+NYJ,24000.0,Aug11,bookmaker,,,stage,Win Super Bowl
+PHI,357.0,Aug11,bookmaker,,,stage,Miss playoffs
+PHI,336.0,Aug11,bookmaker,,,stage,Wild card
+PHI,331.0,Aug11,bookmaker,,,stage,Divisional
+PHI,560.0,Aug11,bookmaker,,,stage,Conference championship
+PHI,585.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+PHI,617.0,Aug11,bookmaker,,,stage,Win Super Bowl
+PIT,-175.0,Aug11,bookmaker,,,stage,Miss playoffs
+PIT,375.0,Aug11,bookmaker,,,stage,Wild card
+PIT,575.0,Aug11,bookmaker,,,stage,Divisional
+PIT,1500.0,Aug11,bookmaker,,,stage,Conference championship
+PIT,3000.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+PIT,2700.0,Aug11,bookmaker,,,stage,Win Super Bowl
+SF,165.0,Aug11,bookmaker,,,stage,Miss playoffs
+SF,295.0,Aug11,bookmaker,,,stage,Wild card
+SF,450.0,Aug11,bookmaker,,,stage,Divisional
+SF,650.0,Aug11,bookmaker,,,stage,Conference championship
+SF,800.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+SF,1750.0,Aug11,bookmaker,,,stage,Win Super Bowl
+SEA,-215.0,Aug11,bookmaker,,,stage,Miss playoffs
+SEA,330.0,Aug11,bookmaker,,,stage,Wild card
+SEA,680.0,Aug11,bookmaker,,,stage,Divisional
+SEA,1500.0,Aug11,bookmaker,,,stage,Conference championship
+SEA,4400.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+SEA,5000.0,Aug11,bookmaker,,,stage,Win Super Bowl
+TB,120.0,Aug11,bookmaker,,,stage,Miss playoffs
+TB,230.0,Aug11,bookmaker,,,stage,Wild card
+TB,375.0,Aug11,bookmaker,,,stage,Divisional
+TB,1100.0,Aug11,bookmaker,,,stage,Conference championship
+TB,2800.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+TB,2950.0,Aug11,bookmaker,,,stage,Win Super Bowl
+TEN,-550.0,Aug11,bookmaker,,,stage,Miss playoffs
+TEN,500.0,Aug11,bookmaker,,,stage,Wild card
+TEN,1400.0,Aug11,bookmaker,,,stage,Divisional
+TEN,4500.0,Aug11,bookmaker,,,stage,Conference championship
+TEN,20000.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+TEN,30000.0,Aug11,bookmaker,,,stage,Win Super Bowl
+WAS,118.0,Aug11,bookmaker,,,stage,Miss playoffs
+WAS,300.0,Aug11,bookmaker,,,stage,Wild card
+WAS,450.0,Aug11,bookmaker,,,stage,Divisional
+WAS,775.0,Aug11,bookmaker,,,stage,Conference championship
+WAS,1550.0,Aug11,bookmaker,,,stage,Lose in Super Bowl
+WAS,1800.0,Aug11,bookmaker,,,stage,Win Super Bowl
+ARI,-139.0,Aug11,bookmaker,,,wins,o8.5
+ARI,122.0,Aug11,bookmaker,,,wins,u8.5
+ARI,146.0,Aug11,bookmaker,,,wins,o9.5
+ARI,-181.0,Aug11,bookmaker,,,wins,u9.5
+ATL,-300.0,Aug11,bookmaker,,,wins,o6.5
+ATL,233.0,Aug11,bookmaker,,,wins,u6.5
+ATL,-142.0,Aug11,bookmaker,,,wins,o7.5
+ATL,127.0,Aug11,bookmaker,,,wins,u7.5
+ATL,139.0,Aug11,bookmaker,,,wins,o8.5
+ATL,-171.0,Aug11,bookmaker,,,wins,u8.5
+BAL,-285.0,Aug11,bookmaker,,,wins,o10.5
+BAL,223.0,Aug11,bookmaker,,,wins,u10.5
+BAL,-130.0,Aug11,bookmaker,,,wins,o11.5
+BAL,113.0,Aug11,bookmaker,,,wins,u11.5
+BAL,168.0,Aug11,bookmaker,,,wins,o12.5
+BAL,-210.0,Aug11,bookmaker,,,wins,u12.5
+BUF,-377.0,Aug11,bookmaker,,,wins,o10.5
+BUF,285.0,Aug11,bookmaker,,,wins,u10.5
+BUF,-167.0,Aug11,bookmaker,,,wins,o11.5
+BUF,150.0,Aug11,bookmaker,,,wins,u11.5
+BUF,129.0,Aug11,bookmaker,,,wins,o12.5
+BUF,-158.0,Aug11,bookmaker,,,wins,u12.5
+CAR,-277.0,Aug11,bookmaker,,,wins,o5.5
+CAR,217.0,Aug11,bookmaker,,,wins,u5.5
+CAR,-128.0,Aug11,bookmaker,,,wins,o6.5
+CAR,111.0,Aug11,bookmaker,,,wins,u6.5
+CAR,148.0,Aug11,bookmaker,,,wins,o7.5
+CAR,-183.0,Aug11,bookmaker,,,wins,u7.5
+CHI,-145.0,Aug11,bookmaker,,,wins,o7.5
+CHI,118.0,Aug11,bookmaker,,,wins,u7.5
+CHI,144.0,Aug11,bookmaker,,,wins,o8.5
+CHI,-160.0,Aug11,bookmaker,,,wins,u8.5
+CHI,267.0,Aug11,bookmaker,,,wins,o9.5
+CHI,-350.0,Aug11,bookmaker,,,wins,u9.5
+CIN,-236.0,Aug11,bookmaker,,,wins,o8.5
+CIN,188.0,Aug11,bookmaker,,,wins,u8.5
+CIN,-110.0,Aug11,bookmaker,,,wins,o9.5
+CIN,-106.0,Aug11,bookmaker,,,wins,u9.5
+CIN,160.0,Aug11,bookmaker,,,wins,o10.5
+CIN,-199.0,Aug11,bookmaker,,,wins,u10.5
+CLE,-171.0,Aug11,bookmaker,,,wins,o4.5
+CLE,139.0,Aug11,bookmaker,,,wins,u4.5
+CLE,132.0,Aug11,bookmaker,,,wins,o5.5
+CLE,-148.0,Aug11,bookmaker,,,wins,u5.5
+CLE,261.0,Aug11,bookmaker,,,wins,o6.5
+CLE,-340.0,Aug11,bookmaker,,,wins,u6.5
+DAL,-300.0,Aug11,bookmaker,,,wins,o6.5
+DAL,233.0,Aug11,bookmaker,,,wins,u6.5
+DAL,-146.0,Aug11,bookmaker,,,wins,o7.5
+DAL,130.0,Aug11,bookmaker,,,wins,u7.5
+DAL,135.0,Aug11,bookmaker,,,wins,o8.5
+DAL,-167.0,Aug11,bookmaker,,,wins,u8.5
+DEN,-200.0,Aug11,bookmaker,,,wins,o8.5
+DEN,161.0,Aug11,bookmaker,,,wins,u8.5
+DEN,-109.0,Aug11,bookmaker,,,wins,o9.5
+DEN,-107.0,Aug11,bookmaker,,,wins,u9.5
+DEN,200.0,Aug11,bookmaker,,,wins,o10.5
+DEN,-253.0,Aug11,bookmaker,,,wins,u10.5
+DET,-186.0,Aug11,bookmaker,,,wins,o9.5
+DET,150.0,Aug11,bookmaker,,,wins,u9.5
+DET,118.0,Aug11,bookmaker,,,wins,o10.5
+DET,-134.0,Aug11,bookmaker,,,wins,u10.5
+DET,230.0,Aug11,bookmaker,,,wins,o11.5
+DET,-295.0,Aug11,bookmaker,,,wins,u11.5
+GB,-233.0,Aug11,bookmaker,,,wins,o8.5
+GB,185.0,Aug11,bookmaker,,,wins,u8.5
+GB,-128.0,Aug11,bookmaker,,,wins,o9.5
+GB,112.0,Aug11,bookmaker,,,wins,u9.5
+GB,159.0,Aug11,bookmaker,,,wins,o10.5
+GB,-198.0,Aug11,bookmaker,,,wins,u10.5
+HOU,-200.0,Aug11,bookmaker,,,wins,o8.5
+HOU,161.0,Aug11,bookmaker,,,wins,u8.5
+HOU,102.0,Aug11,bookmaker,,,wins,o9.5
+HOU,-118.0,Aug11,bookmaker,,,wins,u9.5
+HOU,194.0,Aug11,bookmaker,,,wins,o10.5
+HOU,-244.0,Aug11,bookmaker,,,wins,u10.5
+IND,-250.0,Aug11,bookmaker,,,wins,o6.5
+IND,198.0,Aug11,bookmaker,,,wins,u6.5
+IND,-129.0,Aug11,bookmaker,,,wins,o7.5
+IND,113.0,Aug11,bookmaker,,,wins,u7.5
+IND,161.0,Aug11,bookmaker,,,wins,o8.5
+IND,-200.0,Aug11,bookmaker,,,wins,u8.5
+JAX,-260.0,Aug11,bookmaker,,,wins,o6.5
+JAX,205.0,Aug11,bookmaker,,,wins,u6.5
+JAX,-134.0,Aug11,bookmaker,,,wins,o7.5
+JAX,118.0,Aug11,bookmaker,,,wins,u7.5
+JAX,172.0,Aug11,bookmaker,,,wins,o8.5
+JAX,-215.0,Aug11,bookmaker,,,wins,u8.5
+KC,-205.0,Aug11,bookmaker,,,wins,o10.5
+KC,165.0,Aug11,bookmaker,,,wins,u10.5
+KC,110.0,Aug11,bookmaker,,,wins,o11.5
+KC,-127.0,Aug11,bookmaker,,,wins,u11.5
+KC,223.0,Aug11,bookmaker,,,wins,o12.5
+KC,-285.0,Aug11,bookmaker,,,wins,u12.5
+LV,-320.0,Aug11,bookmaker,,,wins,o5.5
+LV,248.0,Aug11,bookmaker,,,wins,u5.5
+LV,-159.0,Aug11,bookmaker,,,wins,o6.5
+LV,142.0,Aug11,bookmaker,,,wins,u6.5
+LV,125.0,Aug11,bookmaker,,,wins,o7.5
+LV,-154.0,Aug11,bookmaker,,,wins,u7.5
+LA,-260.0,Aug11,bookmaker,,,wins,o8.5
+LA,205.0,Aug11,bookmaker,,,wins,u8.5
+LA,-142.0,Aug11,bookmaker,,,wins,o9.5
+LA,126.0,Aug11,bookmaker,,,wins,u9.5
+LA,149.0,Aug11,bookmaker,,,wins,o10.5
+LA,-184.0,Aug11,bookmaker,,,wins,u10.5
+MIA,-124.0,Aug11,bookmaker,,,wins,o7.5
+MIA,101.0,Aug11,bookmaker,,,wins,u7.5
+MIA,174.0,Aug11,bookmaker,,,wins,o8.5
+MIA,-197.0,Aug11,bookmaker,,,wins,u8.5
+MIA,328.0,Aug11,bookmaker,,,wins,o9.5
+MIA,-445.0,Aug11,bookmaker,,,wins,u9.5
+MIN,-346.0,Aug11,bookmaker,,,wins,o7.5
+MIN,264.0,Aug11,bookmaker,,,wins,u7.5
+MIN,-156.0,Aug11,bookmaker,,,wins,o8.5
+MIN,140.0,Aug11,bookmaker,,,wins,u8.5
+MIN,125.0,Aug11,bookmaker,,,wins,o9.5
+MIN,-153.0,Aug11,bookmaker,,,wins,u9.5
+NE,-372.0,Aug11,bookmaker,,,wins,o6.5
+NE,282.0,Aug11,bookmaker,,,wins,u6.5
+NE,-148.0,Aug11,bookmaker,,,wins,o7.5
+NE,132.0,Aug11,bookmaker,,,wins,u7.5
+NE,123.0,Aug11,bookmaker,,,wins,o8.5
+NE,-150.0,Aug11,bookmaker,,,wins,u8.5
+NO,-157.0,Aug11,bookmaker,,,wins,o4.5
+NO,128.0,Aug11,bookmaker,,,wins,u4.5
+NO,149.0,Aug11,bookmaker,,,wins,o5.5
+NO,-166.0,Aug11,bookmaker,,,wins,u5.5
+NO,267.0,Aug11,bookmaker,,,wins,o6.5
+NO,-350.0,Aug11,bookmaker,,,wins,u6.5
+NYG,-198.0,Aug11,bookmaker,,,wins,o4.5
+NYG,160.0,Aug11,bookmaker,,,wins,u4.5
+NYG,118.0,Aug11,bookmaker,,,wins,o5.5
+NYG,-134.0,Aug11,bookmaker,,,wins,u5.5
+NYG,223.0,Aug11,bookmaker,,,wins,o6.5
+NYG,-285.0,Aug11,bookmaker,,,wins,u6.5
+NYJ,-325.0,Aug11,bookmaker,,,wins,o4.5
+NYJ,251.0,Aug11,bookmaker,,,wins,u4.5
+NYJ,-147.0,Aug11,bookmaker,,,wins,o5.5
+NYJ,130.0,Aug11,bookmaker,,,wins,u5.5
+NYJ,113.0,Aug11,bookmaker,,,wins,o6.5
+NYJ,-138.0,Aug11,bookmaker,,,wins,u6.5
+PIT,-245.0,Aug11,bookmaker,,,wins,o7.5
+PIT,194.0,Aug11,bookmaker,,,wins,u7.5
+PIT,-132.0,Aug11,bookmaker,,,wins,o8.5
+PIT,116.0,Aug11,bookmaker,,,wins,u8.5
+PIT,156.0,Aug11,bookmaker,,,wins,o9.5
+PIT,-193.0,Aug11,bookmaker,,,wins,u9.5
+SF,-245.0,Aug11,bookmaker,,,wins,o9.5
+SF,194.0,Aug11,bookmaker,,,wins,u9.5
+SF,102.0,Aug11,bookmaker,,,wins,o10.5
+SF,-118.0,Aug11,bookmaker,,,wins,u10.5
+SF,207.0,Aug11,bookmaker,,,wins,o11.5
+SF,-262.0,Aug11,bookmaker,,,wins,u11.5
+SEA,-147.0,Aug11,bookmaker,,,wins,o7.5
+SEA,120.0,Aug11,bookmaker,,,wins,u7.5
+SEA,141.0,Aug11,bookmaker,,,wins,o8.5
+SEA,-157.0,Aug11,bookmaker,,,wins,u8.5
+SEA,233.0,Aug11,bookmaker,,,wins,o9.5
+SEA,-300.0,Aug11,bookmaker,,,wins,u9.5
+TB,-202.0,Aug11,bookmaker,,,wins,o8.5
+TB,163.0,Aug11,bookmaker,,,wins,u8.5
+TB,100.0,Aug11,bookmaker,,,wins,o9.5
+TB,-116.0,Aug11,bookmaker,,,wins,u9.5
+TB,205.0,Aug11,bookmaker,,,wins,o10.5
+TB,-260.0,Aug11,bookmaker,,,wins,u10.5
+TEN,-330.0,Aug11,bookmaker,,,wins,o4.5
+TEN,254.0,Aug11,bookmaker,,,wins,u4.5
+TEN,-140.0,Aug11,bookmaker,,,wins,o5.5
+TEN,124.0,Aug11,bookmaker,,,wins,u5.5
+TEN,142.0,Aug11,bookmaker,,,wins,o6.5
+TEN,-175.0,Aug11,bookmaker,,,wins,u6.5
+WAS,-233.0,Aug11,bookmaker,,,wins,o8.5
+WAS,186.0,Aug11,bookmaker,,,wins,u8.5
+WAS,-115.0,Aug11,bookmaker,,,wins,o9.5
+WAS,100.0,Aug11,bookmaker,,,wins,u9.5
+WAS,192.0,Aug11,bookmaker,,,wins,o10.5
+WAS,-242.0,Aug11,bookmaker,,,wins,u10.5
+BUF,-300.0,Aug11,betonline,AFC East,,division,
+NE,550.0,Aug11,betonline,AFC East,,division,
+MIA,650.0,Aug11,betonline,AFC East,,division,
+NYJ,1400.0,Aug11,betonline,AFC East,,division,
+BAL,-145.0,Aug11,betonline,AFC North,,division,
+CIN,225.0,Aug11,betonline,AFC North,,division,
+PIT,500.0,Aug11,betonline,AFC North,,division,
+CLE,2500.0,Aug11,betonline,AFC North,,division,
+HOU,110.0,Aug11,betonline,AFC South,,division,
+JAX,275.0,Aug11,betonline,AFC South,,division,
+IND,325.0,Aug11,betonline,AFC South,,division,
+TEN,700.0,Aug11,betonline,AFC South,,division,
+KC,-120.0,Aug11,betonline,AFC West,,division,
+LAC,300.0,Aug11,betonline,AFC West,,division,
+DEN,325.0,Aug11,betonline,AFC West,,division,
+LV,1200.0,Aug11,betonline,AFC West,,division,
+PHI,-145.0,Aug11,betonline,NFC East,,division,
+WAS,210.0,Aug11,betonline,NFC East,,division,
+DAL,550.0,Aug11,betonline,NFC East,,division,
+NYG,2500.0,Aug11,betonline,NFC East,,division,
+DET,150.0,Aug11,betonline,NFC North,,division,
+GB,260.0,Aug11,betonline,NFC North,,division,
+MIN,265.0,Aug11,betonline,NFC North,,division,
+CHI,550.0,Aug11,betonline,NFC North,,division,
+TB,-115.0,Aug11,betonline,NFC South,,division,
+ATL,230.0,Aug11,betonline,NFC South,,division,
+CAR,425.0,Aug11,betonline,NFC South,,division,
+NO,1200.0,Aug11,betonline,NFC South,,division,
+SF,160.0,Aug11,betonline,NFC West,,division,
+LA,165.0,Aug11,betonline,NFC West,,division,
+ARI,425.0,Aug11,betonline,NFC West,,division,
+SEA,550.0,Aug11,betonline,NFC West,,division,
+ARI,115.0,Aug11,betonline,,,make playoffs,Yes
+ARI,-145.0,Aug11,betonline,,,make playoffs,No
+ATL,145.0,Aug11,betonline,,,make playoffs,Yes
+ATL,-175.0,Aug11,betonline,,,make playoffs,No
+BAL,-500.0,Aug11,betonline,,,make playoffs,Yes
+BAL,350.0,Aug11,betonline,,,make playoffs,No
+BUF,-700.0,Aug11,betonline,,,make playoffs,Yes
+BUF,450.0,Aug11,betonline,,,make playoffs,No
+CAR,250.0,Aug11,betonline,,,make playoffs,Yes
+CAR,-325.0,Aug11,betonline,,,make playoffs,No
+CHI,185.0,Aug11,betonline,,,make playoffs,Yes
+CHI,-225.0,Aug11,betonline,,,make playoffs,No
+CIN,-145.0,Aug11,betonline,,,make playoffs,Yes
+CIN,115.0,Aug11,betonline,,,make playoffs,No
+CLE,650.0,Aug11,betonline,,,make playoffs,Yes
+CLE,-1200.0,Aug11,betonline,,,make playoffs,No
+DAL,185.0,Aug11,betonline,,,make playoffs,Yes
+DAL,-225.0,Aug11,betonline,,,make playoffs,No
+DEN,-125.0,Aug11,betonline,,,make playoffs,Yes
+DEN,-105.0,Aug11,betonline,,,make playoffs,No
+DET,-190.0,Aug11,betonline,,,make playoffs,Yes
+DET,155.0,Aug11,betonline,,,make playoffs,No
+GB,-140.0,Aug11,betonline,,,make playoffs,Yes
+GB,110.0,Aug11,betonline,,,make playoffs,No
+HOU,-150.0,Aug11,betonline,,,make playoffs,Yes
+HOU,120.0,Aug11,betonline,,,make playoffs,No
+IND,185.0,Aug11,betonline,,,make playoffs,Yes
+IND,-225.0,Aug11,betonline,,,make playoffs,No
+JAX,160.0,Aug11,betonline,,,make playoffs,Yes
+JAX,-200.0,Aug11,betonline,,,make playoffs,No
+KC,-400.0,Aug11,betonline,,,make playoffs,Yes
+KC,300.0,Aug11,betonline,,,make playoffs,No
+LV,300.0,Aug11,betonline,,,make playoffs,Yes
+LV,-400.0,Aug11,betonline,,,make playoffs,No
+LAC,-135.0,Aug11,betonline,,,make playoffs,Yes
+LAC,105.0,Aug11,betonline,,,make playoffs,No
+LA,-150.0,Aug11,betonline,,,make playoffs,Yes
+LA,120.0,Aug11,betonline,,,make playoffs,No
+MIA,200.0,Aug11,betonline,,,make playoffs,Yes
+MIA,-260.0,Aug11,betonline,,,make playoffs,No
+NE,150.0,Aug11,betonline,,,make playoffs,Yes
+NE,-180.0,Aug11,betonline,,,make playoffs,No
+NO,800.0,Aug11,betonline,,,make playoffs,Yes
+NO,-1600.0,Aug11,betonline,,,make playoffs,No
+NYG,650.0,Aug11,betonline,,,make playoffs,Yes
+NYG,-1200.0,Aug11,betonline,,,make playoffs,No
+NYJ,425.0,Aug11,betonline,,,make playoffs,Yes
+NYJ,-650.0,Aug11,betonline,,,make playoffs,No
+PHI,-400.0,Aug11,betonline,,,make playoffs,Yes
+PHI,300.0,Aug11,betonline,,,make playoffs,No
+PIT,140.0,Aug11,betonline,,,make playoffs,Yes
+PIT,-170.0,Aug11,betonline,,,make playoffs,No
+SF,-205.0,Aug11,betonline,,,make playoffs,Yes
+SF,165.0,Aug11,betonline,,,make playoffs,No
+SEA,155.0,Aug11,betonline,,,make playoffs,Yes
+SEA,-190.0,Aug11,betonline,,,make playoffs,No
+TB,-145.0,Aug11,betonline,,,make playoffs,Yes
+TB,115.0,Aug11,betonline,,,make playoffs,No
+TEN,400.0,Aug11,betonline,,,make playoffs,Yes
+TEN,-600.0,Aug11,betonline,,,make playoffs,No
+WAS,-145.0,Aug11,betonline,,,make playoffs,Yes
+WAS,115.0,Aug11,betonline,,,make playoffs,No
+BUF,325.0,Aug11,betonline,AFC East,AFC,conference,
+BAL,350.0,Aug11,betonline,AFC North,AFC,conference,
+KC,425.0,Aug11,betonline,AFC West,AFC,conference,
+CIN,1000.0,Aug11,betonline,AFC North,AFC,conference,
+LAC,1200.0,Aug11,betonline,AFC West,AFC,conference,
+HOU,1400.0,Aug11,betonline,AFC South,AFC,conference,
+DEN,1400.0,Aug11,betonline,AFC West,AFC,conference,
+PIT,1800.0,Aug11,betonline,AFC North,AFC,conference,
+MIA,3300.0,Aug11,betonline,AFC East,AFC,conference,
+JAX,3300.0,Aug11,betonline,AFC South,AFC,conference,
+IND,3300.0,Aug11,betonline,AFC South,AFC,conference,
+NE,4000.0,Aug11,betonline,AFC East,AFC,conference,
+LV,5000.0,Aug11,betonline,AFC West,AFC,conference,
+TEN,10000.0,Aug11,betonline,AFC South,AFC,conference,
+NYJ,12500.0,Aug11,betonline,AFC East,AFC,conference,
+CLE,12500.0,Aug11,betonline,AFC North,AFC,conference,
+PHI,350.0,Aug11,betonline,NFC East,NFC,conference,
+DET,550.0,Aug11,betonline,NFC North,NFC,conference,
+SF,850.0,Aug11,betonline,NFC West,NFC,conference,
+GB,850.0,Aug11,betonline,NFC North,NFC,conference,
+LA,900.0,Aug11,betonline,NFC West,NFC,conference,
+MIN,900.0,Aug11,betonline,NFC North,NFC,conference,
+WAS,1000.0,Aug11,betonline,NFC East,NFC,conference,
+TB,1200.0,Aug11,betonline,NFC South,NFC,conference,
+DAL,2200.0,Aug11,betonline,NFC East,NFC,conference,
+CHI,2500.0,Aug11,betonline,NFC North,NFC,conference,
+SEA,2800.0,Aug11,betonline,NFC West,NFC,conference,
+ATL,3300.0,Aug11,betonline,NFC South,NFC,conference,
+ARI,3300.0,Aug11,betonline,NFC West,NFC,conference,
+CAR,6600.0,Aug11,betonline,NFC South,NFC,conference,
+NYG,10000.0,Aug11,betonline,NFC East,NFC,conference,
+NO,15000.0,Aug11,betonline,NFC South,NFC,conference,
+BUF,500.0,Aug11,betonline,AFC East,AFC,super bowl,
+BAL,650.0,Aug11,betonline,AFC North,AFC,super bowl,
+PHI,775.0,Aug11,betonline,NFC East,NFC,super bowl,
+KC,875.0,Aug11,betonline,AFC West,AFC,super bowl,
+DET,1200.0,Aug11,betonline,NFC North,NFC,super bowl,
+SF,1600.0,Aug11,betonline,NFC West,NFC,super bowl,
+GB,1800.0,Aug11,betonline,NFC North,NFC,super bowl,
+LA,1800.0,Aug11,betonline,NFC West,NFC,super bowl,
+CIN,2200.0,Aug11,betonline,AFC North,AFC,super bowl,
+WAS,2200.0,Aug11,betonline,NFC East,NFC,super bowl,
+MIN,2500.0,Aug11,betonline,NFC North,NFC,super bowl,
+DEN,2800.0,Aug11,betonline,AFC West,AFC,super bowl,
+LAC,2800.0,Aug11,betonline,AFC West,AFC,super bowl,
+HOU,3300.0,Aug11,betonline,AFC South,AFC,super bowl,
+TB,3300.0,Aug11,betonline,NFC South,NFC,super bowl,
+ARI,4500.0,Aug11,betonline,NFC West,NFC,super bowl,
+DAL,4500.0,Aug11,betonline,NFC East,NFC,super bowl,
+PIT,4500.0,Aug11,betonline,AFC North,AFC,super bowl,
+CHI,5000.0,Aug11,betonline,NFC North,NFC,super bowl,
+SEA,6600.0,Aug11,betonline,NFC West,NFC,super bowl,
+ATL,7500.0,Aug11,betonline,NFC South,NFC,super bowl,
+JAX,7500.0,Aug11,betonline,AFC South,AFC,super bowl,
+NE,7500.0,Aug11,betonline,AFC East,AFC,super bowl,
+IND,8000.0,Aug11,betonline,AFC South,AFC,super bowl,
+MIA,8000.0,Aug11,betonline,AFC East,AFC,super bowl,
+LV,10000.0,Aug11,betonline,AFC West,AFC,super bowl,
+CAR,15000.0,Aug11,betonline,NFC South,NFC,super bowl,
+NYG,22500.0,Aug11,betonline,NFC East,NFC,super bowl,
+NYJ,22500.0,Aug11,betonline,AFC East,AFC,super bowl,
+TEN,22500.0,Aug11,betonline,AFC South,AFC,super bowl,
+CLE,25000.0,Aug11,betonline,AFC North,AFC,super bowl,
+NO,30000.0,Aug11,betonline,NFC South,NFC,super bowl,
+PHI vs BUF,1600.0,Aug11,betonline,,,exact matchup,
+PHI vs BAL,1700.0,Aug11,betonline,,,exact matchup,
+PHI vs KC,1700.0,Aug11,betonline,,,exact matchup,
+DET vs BUF,2000.0,Aug11,betonline,,,exact matchup,
+DET vs BAL,2100.0,Aug11,betonline,,,exact matchup,
+DET vs KC,2100.0,Aug11,betonline,,,exact matchup,
+PHI vs CIN,3700.0,Aug11,betonline,,,exact matchup,
+SF vs BUF,3700.0,Aug11,betonline,,,exact matchup,
+SF vs BAL,3900.0,Aug11,betonline,,,exact matchup,
+SF vs KC,3900.0,Aug11,betonline,,,exact matchup,
+GB vs BAL,4000.0,Aug11,betonline,,,exact matchup,
+LA vs BUF,4100.0,Aug11,betonline,,,exact matchup,
+LA vs BAL,4400.0,Aug11,betonline,,,exact matchup,
+LA vs KC,4400.0,Aug11,betonline,,,exact matchup,
+WAS vs BUF,4500.0,Aug11,betonline,,,exact matchup,
+DET vs CIN,4800.0,Aug11,betonline,,,exact matchup,
+WAS vs BAL,4800.0,Aug11,betonline,,,exact matchup,
+WAS vs KC,4800.0,Aug11,betonline,,,exact matchup,
+GB vs BUF,5000.0,Aug11,betonline,,,exact matchup,
+PHI vs LAC,5100.0,Aug11,betonline,,,exact matchup,
+GB vs KC,5300.0,Aug11,betonline,,,exact matchup,
+PHI vs DEN,5900.0,Aug11,betonline,,,exact matchup,
+PHI vs HOU,5900.0,Aug11,betonline,,,exact matchup,
+MIN vs BUF,6200.0,Aug11,betonline,,,exact matchup,
+TB vs BUF,6200.0,Aug11,betonline,,,exact matchup,
+DET vs LAC,6400.0,Aug11,betonline,,,exact matchup,
+MIN vs BAL,6600.0,Aug11,betonline,,,exact matchup,
+MIN vs KC,6600.0,Aug11,betonline,,,exact matchup,
+TB vs BAL,6600.0,Aug11,betonline,,,exact matchup,
+TB vs KC,6600.0,Aug11,betonline,,,exact matchup,
+CHI vs BUF,7100.0,Aug11,betonline,,,exact matchup,
+DET vs DEN,7400.0,Aug11,betonline,,,exact matchup,
+DET vs HOU,7400.0,Aug11,betonline,,,exact matchup,
+CHI vs BAL,7500.0,Aug11,betonline,,,exact matchup,
+CHI vs KC,7500.0,Aug11,betonline,,,exact matchup,
+SF vs CIN,8400.0,Aug11,betonline,,,exact matchup,
+PHI vs PIT,9100.0,Aug11,betonline,,,exact matchup,
+LA vs CIN,9400.0,Aug11,betonline,,,exact matchup,
+DAL vs BUF,9600.0,Aug11,betonline,,,exact matchup,
+DAL vs BAL,10200.0,Aug11,betonline,,,exact matchup,
+DAL vs KC,10200.0,Aug11,betonline,,,exact matchup,
+WAS vs CIN,10300.0,Aug11,betonline,,,exact matchup,
+GB vs CIN,11300.0,Aug11,betonline,,,exact matchup,
+DET vs PIT,11400.0,Aug11,betonline,,,exact matchup,
+SF vs LAC,11600.0,Aug11,betonline,,,exact matchup,
+LA vs LAC,12900.0,Aug11,betonline,,,exact matchup,
+SF vs DEN,13400.0,Aug11,betonline,,,exact matchup,
+SF vs HOU,13400.0,Aug11,betonline,,,exact matchup,
+PHI vs LV,13500.0,Aug11,betonline,,,exact matchup,
+PHI vs MIA,13500.0,Aug11,betonline,,,exact matchup,
+MIN vs CIN,14100.0,Aug11,betonline,,,exact matchup,
+TB vs CIN,14100.0,Aug11,betonline,,,exact matchup,
+WAS vs LAC,14200.0,Aug11,betonline,,,exact matchup,
+ARI vs BUF,14300.0,Aug11,betonline,,,exact matchup,
+ATL vs BUF,14300.0,Aug11,betonline,,,exact matchup,
+SEA vs BUF,14300.0,Aug11,betonline,,,exact matchup,
+LA vs DEN,14900.0,Aug11,betonline,,,exact matchup,
+LA vs HOU,14900.0,Aug11,betonline,,,exact matchup,
+ARI vs BAL,15200.0,Aug11,betonline,,,exact matchup,
+ARI vs KC,15200.0,Aug11,betonline,,,exact matchup,
+ATL vs BAL,15200.0,Aug11,betonline,,,exact matchup,
+ATL vs KC,15200.0,Aug11,betonline,,,exact matchup,
+SEA vs BAL,15200.0,Aug11,betonline,,,exact matchup,
+SEA vs KC,15200.0,Aug11,betonline,,,exact matchup,
+GB vs LAC,15500.0,Aug11,betonline,,,exact matchup,
+CHI vs CIN,16000.0,Aug11,betonline,,,exact matchup,
+PHI vs JAX,16300.0,Aug11,betonline,,,exact matchup,
+PHI vs NE,16300.0,Aug11,betonline,,,exact matchup,
+WAS vs DEN,16400.0,Aug11,betonline,,,exact matchup,
+WAS vs HOU,16400.0,Aug11,betonline,,,exact matchup,
+DET vs LV,16900.0,Aug11,betonline,,,exact matchup,
+DET vs MIA,16900.0,Aug11,betonline,,,exact matchup,
+GB vs DEN,17900.0,Aug11,betonline,,,exact matchup,
+GB vs HOU,17900.0,Aug11,betonline,,,exact matchup,
+MIN vs LAC,19400.0,Aug11,betonline,,,exact matchup,
+TB vs LAC,19400.0,Aug11,betonline,,,exact matchup,
+PHI vs IND,20300.0,Aug11,betonline,,,exact matchup,
+DET vs JAX,20400.0,Aug11,betonline,,,exact matchup,
+DET vs NE,20400.0,Aug11,betonline,,,exact matchup,
+SF vs PIT,20600.0,Aug11,betonline,,,exact matchup,
+DAL vs CIN,21700.0,Aug11,betonline,,,exact matchup,
+CHI vs LAC,22000.0,Aug11,betonline,,,exact matchup,
+MIN vs DEN,22400.0,Aug11,betonline,,,exact matchup,
+MIN vs HOU,22400.0,Aug11,betonline,,,exact matchup,
+TB vs DEN,22400.0,Aug11,betonline,,,exact matchup,
+TB vs HOU,22400.0,Aug11,betonline,,,exact matchup,
+LA vs PIT,22900.0,Aug11,betonline,,,exact matchup,
+NYG vs BUF,23700.0,Aug11,betonline,,,exact matchup,
+NYG vs BAL,25100.0,Aug11,betonline,,,exact matchup,
+NYG vs KC,25100.0,Aug11,betonline,,,exact matchup,
+WAS vs PIT,25200.0,Aug11,betonline,,,exact matchup,
+CHI vs DEN,25400.0,Aug11,betonline,,,exact matchup,
+CHI vs HOU,25400.0,Aug11,betonline,,,exact matchup,
+DET vs IND,25400.0,Aug11,betonline,,,exact matchup,
+GB vs PIT,27500.0,Aug11,betonline,,,exact matchup,
+DAL vs LAC,29800.0,Aug11,betonline,,,exact matchup,
+PHI vs CLE,30300.0,Aug11,betonline,,,exact matchup,
+PHI vs NYJ,30300.0,Aug11,betonline,,,exact matchup,
+SF vs LV,30500.0,Aug11,betonline,,,exact matchup,
+SF vs MIA,30500.0,Aug11,betonline,,,exact matchup,
+ARI vs CIN,32200.0,Aug11,betonline,,,exact matchup,
+ATL vs CIN,32200.0,Aug11,betonline,,,exact matchup,
+SEA vs CIN,32200.0,Aug11,betonline,,,exact matchup,
+LA vs LV,33900.0,Aug11,betonline,,,exact matchup,
+LA vs MIA,33900.0,Aug11,betonline,,,exact matchup,
+CAR vs BUF,34300.0,Aug11,betonline,,,exact matchup,
+NO vs BUF,34300.0,Aug11,betonline,,,exact matchup,
+DAL vs DEN,34400.0,Aug11,betonline,,,exact matchup,
+DAL vs HOU,34400.0,Aug11,betonline,,,exact matchup,
+MIN vs PIT,34400.0,Aug11,betonline,,,exact matchup,
+TB vs PIT,34400.0,Aug11,betonline,,,exact matchup,
+CAR vs BAL,36300.0,Aug11,betonline,,,exact matchup,
+NO vs BAL,36300.0,Aug11,betonline,,,exact matchup,
+NO vs KC,36300.0,Aug11,betonline,,,exact matchup,
+CAR vs KC,36350.0,Aug11,betonline,,,exact matchup,
+SF vs JAX,36800.0,Aug11,betonline,,,exact matchup,
+SF vs NE,36800.0,Aug11,betonline,,,exact matchup,
+WAS vs LV,37300.0,Aug11,betonline,,,exact matchup,
+WAS vs MIA,37300.0,Aug11,betonline,,,exact matchup,
+DET vs CLE,37900.0,Aug11,betonline,,,exact matchup,
+DET vs NYJ,37900.0,Aug11,betonline,,,exact matchup,
+CHI vs PIT,39000.0,Aug11,betonline,,,exact matchup,
+PHI vs TEN,40300.0,Aug11,betonline,,,exact matchup,
+GB vs LV,40700.0,Aug11,betonline,,,exact matchup,
+GB vs MIA,40700.0,Aug11,betonline,,,exact matchup,
+LA vs JAX,40900.0,Aug11,betonline,,,exact matchup,
+LA vs NE,40900.0,Aug11,betonline,,,exact matchup,
+ARI vs LAC,44100.0,Aug11,betonline,,,exact matchup,
+ATL vs LAC,44100.0,Aug11,betonline,,,exact matchup,
+SEA vs LAC,44100.0,Aug11,betonline,,,exact matchup,
+WAS vs JAX,45000.0,Aug11,betonline,,,exact matchup,
+WAS vs NE,45000.0,Aug11,betonline,,,exact matchup,
+SF vs IND,45800.0,Aug11,betonline,,,exact matchup,
+GB vs JAX,49100.0,Aug11,betonline,,,exact matchup,
+GB vs NE,49100.0,Aug11,betonline,,,exact matchup,
+DET vs TEN,50400.0,Aug11,betonline,,,exact matchup,
+ARI vs DEN,50900.0,Aug11,betonline,,,exact matchup,
+ARI vs HOU,50900.0,Aug11,betonline,,,exact matchup,
+ATL vs DEN,50900.0,Aug11,betonline,,,exact matchup,
+ATL vs HOU,50900.0,Aug11,betonline,,,exact matchup,
+LA vs IND,50900.0,Aug11,betonline,,,exact matchup,
+MIN vs LV,50900.0,Aug11,betonline,,,exact matchup,
+MIN vs MIA,50900.0,Aug11,betonline,,,exact matchup,
+SEA vs DEN,50900.0,Aug11,betonline,,,exact matchup,
+SEA vs HOU,50900.0,Aug11,betonline,,,exact matchup,
+TB vs LV,50900.0,Aug11,betonline,,,exact matchup,
+TB vs MIA,50900.0,Aug11,betonline,,,exact matchup,
+DAL vs PIT,52800.0,Aug11,betonline,,,exact matchup,
+NYG vs CIN,53100.0,Aug11,betonline,,,exact matchup,
+WAS vs IND,56000.0,Aug11,betonline,,,exact matchup,
+CHI vs LV,57700.0,Aug11,betonline,,,exact matchup,
+CHI vs MIA,57700.0,Aug11,betonline,,,exact matchup,
+GB vs IND,61100.0,Aug11,betonline,,,exact matchup,
+MIN vs JAX,61400.0,Aug11,betonline,,,exact matchup,
+MIN vs NE,61400.0,Aug11,betonline,,,exact matchup,
+TB vs JAX,61400.0,Aug11,betonline,,,exact matchup,
+TB vs NE,61400.0,Aug11,betonline,,,exact matchup,
+SF vs CLE,68300.0,Aug11,betonline,,,exact matchup,
+SF vs NYJ,68300.0,Aug11,betonline,,,exact matchup,
+CHI vs JAX,69600.0,Aug11,betonline,,,exact matchup,
+CHI vs NE,69600.0,Aug11,betonline,,,exact matchup,
+NYG vs LAC,72700.0,Aug11,betonline,,,exact matchup,
+LA vs CLE,75900.0,Aug11,betonline,,,exact matchup,
+LA vs NYJ,75900.0,Aug11,betonline,,,exact matchup,
+MIN vs IND,76400.0,Aug11,betonline,,,exact matchup,
+TB vs IND,76400.0,Aug11,betonline,,,exact matchup,
+CAR vs CIN,76800.0,Aug11,betonline,,,exact matchup,
+NO vs CIN,76800.0,Aug11,betonline,,,exact matchup,
+ARI vs PIT,78100.0,Aug11,betonline,,,exact matchup,
+ATL vs PIT,78100.0,Aug11,betonline,,,exact matchup,
+DAL vs LV,78100.0,Aug11,betonline,,,exact matchup,
+DAL vs MIA,78100.0,Aug11,betonline,,,exact matchup,
+SEA vs PIT,78100.0,Aug11,betonline,,,exact matchup,
+WAS vs CLE,83500.0,Aug11,betonline,,,exact matchup,
+WAS vs NYJ,83500.0,Aug11,betonline,,,exact matchup,
+NYG vs DEN,83900.0,Aug11,betonline,,,exact matchup,
+NYG vs HOU,83900.0,Aug11,betonline,,,exact matchup,
+CHI vs IND,86600.0,Aug11,betonline,,,exact matchup,
+SF vs TEN,90800.0,Aug11,betonline,,,exact matchup,
+GB vs CLE,91100.0,Aug11,betonline,,,exact matchup,
+GB vs NYJ,91100.0,Aug11,betonline,,,exact matchup,
+DAL vs JAX,94200.0,Aug11,betonline,,,exact matchup,
+DAL vs NE,94200.0,Aug11,betonline,,,exact matchup,
+LA vs TEN,100900.0,Aug11,betonline,,,exact matchup,
+CAR vs LAC,105200.0,Aug11,betonline,,,exact matchup,
+NO vs LAC,105200.0,Aug11,betonline,,,exact matchup,
+WAS vs TEN,111000.0,Aug11,betonline,,,exact matchup,
+MIN vs CLE,113900.0,Aug11,betonline,,,exact matchup,
+MIN vs NYJ,113900.0,Aug11,betonline,,,exact matchup,
+TB vs CLE,113900.0,Aug11,betonline,,,exact matchup,
+TB vs NYJ,113900.0,Aug11,betonline,,,exact matchup,
+ARI vs LV,115500.0,Aug11,betonline,,,exact matchup,
+ARI vs MIA,115500.0,Aug11,betonline,,,exact matchup,
+ATL vs LV,115500.0,Aug11,betonline,,,exact matchup,
+ATL vs MIA,115500.0,Aug11,betonline,,,exact matchup,
+SEA vs LV,115500.0,Aug11,betonline,,,exact matchup,
+SEA vs MIA,115500.0,Aug11,betonline,,,exact matchup,
+DAL vs IND,117200.0,Aug11,betonline,,,exact matchup,
+GB vs TEN,121100.0,Aug11,betonline,,,exact matchup,
+CAR vs DEN,121400.0,Aug11,betonline,,,exact matchup,
+CAR vs HOU,121400.0,Aug11,betonline,,,exact matchup,
+NO vs DEN,121400.0,Aug11,betonline,,,exact matchup,
+NO vs HOU,121400.0,Aug11,betonline,,,exact matchup,
+NYG vs PIT,128700.0,Aug11,betonline,,,exact matchup,
+CHI vs CLE,129100.0,Aug11,betonline,,,exact matchup,
+CHI vs NYJ,129100.0,Aug11,betonline,,,exact matchup,
+ARI vs JAX,139300.0,Aug11,betonline,,,exact matchup,
+ARI vs NE,139300.0,Aug11,betonline,,,exact matchup,
+ATL vs JAX,139300.0,Aug11,betonline,,,exact matchup,
+ATL vs NE,139300.0,Aug11,betonline,,,exact matchup,
+SEA vs JAX,139300.0,Aug11,betonline,,,exact matchup,
+SEA vs NE,139300.0,Aug11,betonline,,,exact matchup,
+MIN vs TEN,151400.0,Aug11,betonline,,,exact matchup,
+TB vs TEN,151400.0,Aug11,betonline,,,exact matchup,
+CHI vs TEN,171600.0,Aug11,betonline,,,exact matchup,
+ARI vs IND,173300.0,Aug11,betonline,,,exact matchup,
+ATL vs IND,173300.0,Aug11,betonline,,,exact matchup,
+SEA vs IND,173300.0,Aug11,betonline,,,exact matchup,
+DAL vs CLE,174700.0,Aug11,betonline,,,exact matchup,
+DAL vs NYJ,174700.0,Aug11,betonline,,,exact matchup,
+CAR vs PIT,186200.0,Aug11,betonline,,,exact matchup,
+NO vs PIT,186200.0,Aug11,betonline,,,exact matchup,
+NYG vs LV,190300.0,Aug11,betonline,,,exact matchup,
+NYG vs MIA,190300.0,Aug11,betonline,,,exact matchup,
+NYG vs JAX,229500.0,Aug11,betonline,,,exact matchup,
+NYG vs NE,229500.0,Aug11,betonline,,,exact matchup,
+DAL vs TEN,232200.0,Aug11,betonline,,,exact matchup,
+ARI vs CLE,258300.0,Aug11,betonline,,,exact matchup,
+ARI vs NYJ,258300.0,Aug11,betonline,,,exact matchup,
+ATL vs CLE,258300.0,Aug11,betonline,,,exact matchup,
+ATL vs NYJ,258300.0,Aug11,betonline,,,exact matchup,
+SEA vs CLE,258300.0,Aug11,betonline,,,exact matchup,
+SEA vs NYJ,258300.0,Aug11,betonline,,,exact matchup,
+CAR vs LV,275300.0,Aug11,betonline,,,exact matchup,
+CAR vs MIA,275300.0,Aug11,betonline,,,exact matchup,
+NO vs LV,275300.0,Aug11,betonline,,,exact matchup,
+NO vs MIA,275300.0,Aug11,betonline,,,exact matchup,
+NYG vs IND,285500.0,Aug11,betonline,,,exact matchup,
+CAR vs JAX,332000.0,Aug11,betonline,,,exact matchup,
+CAR vs NE,332000.0,Aug11,betonline,,,exact matchup,
+NO vs JAX,332000.0,Aug11,betonline,,,exact matchup,
+NO vs NE,332000.0,Aug11,betonline,,,exact matchup,
+ARI vs TEN,343300.0,Aug11,betonline,,,exact matchup,
+ATL vs TEN,343300.0,Aug11,betonline,,,exact matchup,
+SEA vs TEN,343300.0,Aug11,betonline,,,exact matchup,
+CAR vs IND,413000.0,Aug11,betonline,,,exact matchup,
+NO vs IND,413000.0,Aug11,betonline,,,exact matchup,
+NYG vs CLE,425500.0,Aug11,betonline,,,exact matchup,
+NYG vs NYJ,425500.0,Aug11,betonline,,,exact matchup,
+CAR vs CLE,500000.0,Aug11,betonline,,,exact matchup,
+CAR vs NYJ,500000.0,Aug11,betonline,,,exact matchup,
+CAR vs TEN,500000.0,Aug11,betonline,,,exact matchup,
+NO vs CLE,500000.0,Aug11,betonline,,,exact matchup,
+NO vs NYJ,500000.0,Aug11,betonline,,,exact matchup,
+NO vs TEN,500000.0,Aug11,betonline,,,exact matchup,
+NYG vs TEN,500000.0,Aug11,betonline,,,exact matchup,
+ARI,-145.0,Aug11,betonline,,,stage,Miss playoffs
+ARI,310.0,Aug11,betonline,,,stage,Wild card
+ARI,625.0,Aug11,betonline,,,stage,Divisional
+ARI,1400.0,Aug11,betonline,,,stage,Conference championship
+ARI,4000.0,Aug11,betonline,,,stage,Lose in Super Bowl
+ARI,5500.0,Aug11,betonline,,,stage,Win Super Bowl
+ATL,-175.0,Aug11,betonline,,,stage,Miss playoffs
+ATL,325.0,Aug11,betonline,,,stage,Wild card
+ATL,650.0,Aug11,betonline,,,stage,Divisional
+ATL,1800.0,Aug11,betonline,,,stage,Conference championship
+ATL,6000.0,Aug11,betonline,,,stage,Lose in Super Bowl
+ATL,6600.0,Aug11,betonline,,,stage,Win Super Bowl
+BAL,325.0,Aug11,betonline,,,stage,Wild card
+BAL,350.0,Aug11,betonline,,,stage,Miss playoffs
+BAL,400.0,Aug11,betonline,,,stage,Divisional
+BAL,525.0,Aug11,betonline,,,stage,Conference championship
+BAL,575.0,Aug11,betonline,,,stage,Win Super Bowl
+BAL,750.0,Aug11,betonline,,,stage,Lose in Super Bowl
+BUF,250.0,Aug11,betonline,,,stage,Divisional
+BUF,400.0,Aug11,betonline,,,stage,Wild card
+BUF,450.0,Aug11,betonline,,,stage,Miss playoffs
+BUF,525.0,Aug11,betonline,,,stage,Conference championship
+BUF,525.0,Aug11,betonline,,,stage,Win Super Bowl
+BUF,900.0,Aug11,betonline,,,stage,Lose in Super Bowl
+CAR,-325.0,Aug11,betonline,,,stage,Miss playoffs
+CAR,375.0,Aug11,betonline,,,stage,Wild card
+CAR,1400.0,Aug11,betonline,,,stage,Divisional
+CAR,4000.0,Aug11,betonline,,,stage,Conference championship
+CAR,10000.0,Aug11,betonline,,,stage,Lose in Super Bowl
+CAR,15000.0,Aug11,betonline,,,stage,Win Super Bowl
+CHI,-225.0,Aug11,betonline,,,stage,Miss playoffs
+CHI,425.0,Aug11,betonline,,,stage,Wild card
+CHI,850.0,Aug11,betonline,,,stage,Divisional
+CHI,1800.0,Aug11,betonline,,,stage,Conference championship
+CHI,4000.0,Aug11,betonline,,,stage,Lose in Super Bowl
+CHI,4500.0,Aug11,betonline,,,stage,Win Super Bowl
+CIN,115.0,Aug11,betonline,,,stage,Miss playoffs
+CIN,280.0,Aug11,betonline,,,stage,Wild card
+CIN,450.0,Aug11,betonline,,,stage,Divisional
+CIN,1100.0,Aug11,betonline,,,stage,Conference championship
+CIN,2000.0,Aug11,betonline,,,stage,Lose in Super Bowl
+CIN,2000.0,Aug11,betonline,,,stage,Win Super Bowl
+CLE,-1200.0,Aug11,betonline,,,stage,Miss playoffs
+CLE,850.0,Aug11,betonline,,,stage,Wild card
+CLE,3300.0,Aug11,betonline,,,stage,Divisional
+CLE,7500.0,Aug11,betonline,,,stage,Conference championship
+CLE,15000.0,Aug11,betonline,,,stage,Lose in Super Bowl
+CLE,20000.0,Aug11,betonline,,,stage,Win Super Bowl
+DAL,-225.0,Aug11,betonline,,,stage,Miss playoffs
+DAL,400.0,Aug11,betonline,,,stage,Wild card
+DAL,800.0,Aug11,betonline,,,stage,Divisional
+DAL,2200.0,Aug11,betonline,,,stage,Conference championship
+DAL,4000.0,Aug11,betonline,,,stage,Win Super Bowl
+DAL,5500.0,Aug11,betonline,,,stage,Lose in Super Bowl
+DEN,-105.0,Aug11,betonline,,,stage,Miss playoffs
+DEN,310.0,Aug11,betonline,,,stage,Wild card
+DEN,500.0,Aug11,betonline,,,stage,Divisional
+DEN,1000.0,Aug11,betonline,,,stage,Conference championship
+DEN,2500.0,Aug11,betonline,,,stage,Lose in Super Bowl
+DEN,2800.0,Aug11,betonline,,,stage,Win Super Bowl
+DET,155.0,Aug11,betonline,,,stage,Miss playoffs
+DET,340.0,Aug11,betonline,,,stage,Wild card
+DET,450.0,Aug11,betonline,,,stage,Divisional
+DET,850.0,Aug11,betonline,,,stage,Conference championship
+DET,900.0,Aug11,betonline,,,stage,Win Super Bowl
+DET,1100.0,Aug11,betonline,,,stage,Lose in Super Bowl
+GB,110.0,Aug11,betonline,,,stage,Miss playoffs
+GB,350.0,Aug11,betonline,,,stage,Wild card
+GB,475.0,Aug11,betonline,,,stage,Divisional
+GB,800.0,Aug11,betonline,,,stage,Conference championship
+GB,1800.0,Aug11,betonline,,,stage,Lose in Super Bowl
+GB,1800.0,Aug11,betonline,,,stage,Win Super Bowl
+HOU,120.0,Aug11,betonline,,,stage,Miss playoffs
+HOU,250.0,Aug11,betonline,,,stage,Wild card
+HOU,450.0,Aug11,betonline,,,stage,Divisional
+HOU,900.0,Aug11,betonline,,,stage,Conference championship
+HOU,2800.0,Aug11,betonline,,,stage,Lose in Super Bowl
+HOU,3300.0,Aug11,betonline,,,stage,Win Super Bowl
+IND,-225.0,Aug11,betonline,,,stage,Miss playoffs
+IND,340.0,Aug11,betonline,,,stage,Wild card
+IND,900.0,Aug11,betonline,,,stage,Divisional
+IND,2200.0,Aug11,betonline,,,stage,Conference championship
+IND,8000.0,Aug11,betonline,,,stage,Lose in Super Bowl
+IND,10000.0,Aug11,betonline,,,stage,Win Super Bowl
+JAX,-200.0,Aug11,betonline,,,stage,Miss playoffs
+JAX,325.0,Aug11,betonline,,,stage,Wild card
+JAX,800.0,Aug11,betonline,,,stage,Divisional
+JAX,1800.0,Aug11,betonline,,,stage,Conference championship
+JAX,7500.0,Aug11,betonline,,,stage,Lose in Super Bowl
+JAX,10000.0,Aug11,betonline,,,stage,Win Super Bowl
+KC,300.0,Aug11,betonline,,,stage,Miss playoffs
+KC,325.0,Aug11,betonline,,,stage,Wild card
+KC,325.0,Aug11,betonline,,,stage,Divisional
+KC,550.0,Aug11,betonline,,,stage,Conference championship
+KC,800.0,Aug11,betonline,,,stage,Win Super Bowl
+KC,900.0,Aug11,betonline,,,stage,Lose in Super Bowl
+LV,-400.0,Aug11,betonline,,,stage,Miss playoffs
+LV,500.0,Aug11,betonline,,,stage,Wild card
+LV,1400.0,Aug11,betonline,,,stage,Divisional
+LV,4000.0,Aug11,betonline,,,stage,Conference championship
+LV,8000.0,Aug11,betonline,,,stage,Lose in Super Bowl
+LV,8000.0,Aug11,betonline,,,stage,Win Super Bowl
+LAC,105.0,Aug11,betonline,,,stage,Miss playoffs
+LAC,275.0,Aug11,betonline,,,stage,Wild card
+LAC,475.0,Aug11,betonline,,,stage,Divisional
+LAC,1100.0,Aug11,betonline,,,stage,Conference championship
+LAC,2200.0,Aug11,betonline,,,stage,Lose in Super Bowl
+LAC,2800.0,Aug11,betonline,,,stage,Win Super Bowl
+LA,120.0,Aug11,betonline,,,stage,Miss playoffs
+LA,285.0,Aug11,betonline,,,stage,Wild card
+LA,500.0,Aug11,betonline,,,stage,Divisional
+LA,900.0,Aug11,betonline,,,stage,Conference championship
+LA,1600.0,Aug11,betonline,,,stage,Win Super Bowl
+LA,2000.0,Aug11,betonline,,,stage,Lose in Super Bowl
+MIA,-260.0,Aug11,betonline,,,stage,Miss playoffs
+MIA,375.0,Aug11,betonline,,,stage,Wild card
+MIA,900.0,Aug11,betonline,,,stage,Divisional
+MIA,2200.0,Aug11,betonline,,,stage,Conference championship
+MIA,6000.0,Aug11,betonline,,,stage,Lose in Super Bowl
+MIA,6600.0,Aug11,betonline,,,stage,Win Super Bowl
+NE,-180.0,Aug11,betonline,,,stage,Miss playoffs
+NE,325.0,Aug11,betonline,,,stage,Wild card
+NE,700.0,Aug11,betonline,,,stage,Divisional
+NE,1800.0,Aug11,betonline,,,stage,Conference championship
+NE,6000.0,Aug11,betonline,,,stage,Lose in Super Bowl
+NE,6600.0,Aug11,betonline,,,stage,Win Super Bowl
+NO,-1600.0,Aug11,betonline,,,stage,Miss playoffs
+NO,1000.0,Aug11,betonline,,,stage,Wild card
+NO,3300.0,Aug11,betonline,,,stage,Divisional
+NO,6600.0,Aug11,betonline,,,stage,Conference championship
+NO,20000.0,Aug11,betonline,,,stage,Lose in Super Bowl
+NO,20000.0,Aug11,betonline,,,stage,Win Super Bowl
+NYG,-1200.0,Aug11,betonline,,,stage,Miss playoffs
+NYG,950.0,Aug11,betonline,,,stage,Wild card
+NYG,2500.0,Aug11,betonline,,,stage,Divisional
+NYG,5500.0,Aug11,betonline,,,stage,Conference championship
+NYG,15000.0,Aug11,betonline,,,stage,Lose in Super Bowl
+NYG,15000.0,Aug11,betonline,,,stage,Win Super Bowl
+NYJ,-650.0,Aug11,betonline,,,stage,Miss playoffs
+NYJ,650.0,Aug11,betonline,,,stage,Wild card
+NYJ,2000.0,Aug11,betonline,,,stage,Divisional
+NYJ,5000.0,Aug11,betonline,,,stage,Conference championship
+NYJ,15000.0,Aug11,betonline,,,stage,Lose in Super Bowl
+NYJ,15000.0,Aug11,betonline,,,stage,Win Super Bowl
+PHI,300.0,Aug11,betonline,,,stage,Miss playoffs
+PHI,340.0,Aug11,betonline,,,stage,Wild card
+PHI,340.0,Aug11,betonline,,,stage,Divisional
+PHI,600.0,Aug11,betonline,,,stage,Conference championship
+PHI,725.0,Aug11,betonline,,,stage,Win Super Bowl
+PHI,775.0,Aug11,betonline,,,stage,Lose in Super Bowl
+PIT,-170.0,Aug11,betonline,,,stage,Miss playoffs
+PIT,375.0,Aug11,betonline,,,stage,Wild card
+PIT,650.0,Aug11,betonline,,,stage,Divisional
+PIT,1600.0,Aug11,betonline,,,stage,Conference championship
+PIT,3500.0,Aug11,betonline,,,stage,Win Super Bowl
+PIT,4000.0,Aug11,betonline,,,stage,Lose in Super Bowl
+SF,165.0,Aug11,betonline,,,stage,Miss playoffs
+SF,240.0,Aug11,betonline,,,stage,Wild card
+SF,375.0,Aug11,betonline,,,stage,Divisional
+SF,900.0,Aug11,betonline,,,stage,Conference championship
+SF,1800.0,Aug11,betonline,,,stage,Lose in Super Bowl
+SF,1800.0,Aug11,betonline,,,stage,Win Super Bowl
+SEA,-200.0,Aug11,betonline,,,stage,Miss playoffs
+SEA,375.0,Aug11,betonline,,,stage,Wild card
+SEA,750.0,Aug11,betonline,,,stage,Divisional
+SEA,2000.0,Aug11,betonline,,,stage,Conference championship
+SEA,4500.0,Aug11,betonline,,,stage,Lose in Super Bowl
+SEA,5000.0,Aug11,betonline,,,stage,Win Super Bowl
+TB,115.0,Aug11,betonline,,,stage,Miss playoffs
+TB,260.0,Aug11,betonline,,,stage,Wild card
+TB,450.0,Aug11,betonline,,,stage,Divisional
+TB,1000.0,Aug11,betonline,,,stage,Conference championship
+TB,2500.0,Aug11,betonline,,,stage,Lose in Super Bowl
+TB,2800.0,Aug11,betonline,,,stage,Win Super Bowl
+TEN,-600.0,Aug11,betonline,,,stage,Miss playoffs
+TEN,650.0,Aug11,betonline,,,stage,Wild card
+TEN,1600.0,Aug11,betonline,,,stage,Divisional
+TEN,4000.0,Aug11,betonline,,,stage,Conference championship
+TEN,15000.0,Aug11,betonline,,,stage,Lose in Super Bowl
+TEN,20000.0,Aug11,betonline,,,stage,Win Super Bowl
+WAS,115.0,Aug11,betonline,,,stage,Miss playoffs
+WAS,300.0,Aug11,betonline,,,stage,Wild card
+WAS,550.0,Aug11,betonline,,,stage,Divisional
+WAS,900.0,Aug11,betonline,,,stage,Conference championship
+WAS,1400.0,Aug11,betonline,,,stage,Lose in Super Bowl
+WAS,1800.0,Aug11,betonline,,,stage,Win Super Bowl
+NO,375.0,Aug11,betonline,,,fewest wins,
+CLE,400.0,Aug11,betonline,,,fewest wins,
+NYG,600.0,Aug11,betonline,,,fewest wins,
+NYJ,900.0,Aug11,betonline,,,fewest wins,
+TEN,1000.0,Aug11,betonline,,,fewest wins,
+LV,1400.0,Aug11,betonline,,,fewest wins,
+CAR,1400.0,Aug11,betonline,,,fewest wins,
+IND,2000.0,Aug11,betonline,,,fewest wins,
+MIA,2500.0,Aug11,betonline,,,fewest wins,
+JAX,2800.0,Aug11,betonline,,,fewest wins,
+DAL,3300.0,Aug11,betonline,,,fewest wins,
+ATL,3300.0,Aug11,betonline,,,fewest wins,
+SEA,4000.0,Aug11,betonline,,,fewest wins,
+PIT,4500.0,Aug11,betonline,,,fewest wins,
+CHI,4500.0,Aug11,betonline,,,fewest wins,
+NE,5000.0,Aug11,betonline,,,fewest wins,
+HOU,6600.0,Aug11,betonline,,,fewest wins,
+ARI,6600.0,Aug11,betonline,,,fewest wins,
+MIN,10000.0,Aug11,betonline,,,fewest wins,
+DEN,12000.0,Aug11,betonline,,,fewest wins,
+CIN,12500.0,Aug11,betonline,,,fewest wins,
+LAC,12500.0,Aug11,betonline,,,fewest wins,
+GB,12500.0,Aug11,betonline,,,fewest wins,
+LA,15000.0,Aug11,betonline,,,fewest wins,
+WAS,15000.0,Aug11,betonline,,,fewest wins,
+TB,15000.0,Aug11,betonline,,,fewest wins,
+DET,17500.0,Aug11,betonline,,,fewest wins,
+SF,20000.0,Aug11,betonline,,,fewest wins,
+KC,30000.0,Aug11,betonline,,,fewest wins,
+PHI,35000.0,Aug11,betonline,,,fewest wins,
+BAL,60000.0,Aug11,betonline,,,fewest wins,
+BUF,75000.0,Aug11,betonline,,,fewest wins,
+BUF,350.0,Aug11,betonline,,,most wins,
+BAL,500.0,Aug11,betonline,,,most wins,
+KC,850.0,Aug11,betonline,,,most wins,
+PHI,900.0,Aug11,betonline,,,most wins,
+SF,1200.0,Aug11,betonline,,,most wins,
+TB,1800.0,Aug11,betonline,,,most wins,
+DET,1800.0,Aug11,betonline,,,most wins,
+LA,2000.0,Aug11,betonline,,,most wins,
+DEN,2000.0,Aug11,betonline,,,most wins,
+WAS,2200.0,Aug11,betonline,,,most wins,
+GB,2200.0,Aug11,betonline,,,most wins,
+LAC,2200.0,Aug11,betonline,,,most wins,
+CIN,2200.0,Aug11,betonline,,,most wins,
+MIN,2500.0,Aug11,betonline,,,most wins,
+HOU,4000.0,Aug11,betonline,,,most wins,
+NE,5000.0,Aug11,betonline,,,most wins,
+ARI,5000.0,Aug11,betonline,,,most wins,
+SEA,5500.0,Aug11,betonline,,,most wins,
+PIT,6600.0,Aug11,betonline,,,most wins,
+CHI,6600.0,Aug11,betonline,,,most wins,
+JAX,8000.0,Aug11,betonline,,,most wins,
+DAL,8000.0,Aug11,betonline,,,most wins,
+ATL,8000.0,Aug11,betonline,,,most wins,
+MIA,20000.0,Aug11,betonline,,,most wins,
+IND,20000.0,Aug11,betonline,,,most wins,
+LV,25000.0,Aug11,betonline,,,most wins,
+CAR,25000.0,Aug11,betonline,,,most wins,
+TEN,30000.0,Aug11,betonline,,,most wins,
+NYJ,40000.0,Aug11,betonline,,,most wins,
+NYG,40000.0,Aug11,betonline,,,most wins,
+NO,50000.0,Aug11,betonline,,,most wins,
+CLE,75000.0,Aug11,betonline,,,most wins,
+ARI,-135.0,Aug11,betonline,,,wins,o8.5
+ARI,105.0,Aug11,betonline,,,wins,u8.5
+ATL,-165.0,Aug11,betonline,,,wins,o7.5
+ATL,135.0,Aug11,betonline,,,wins,u7.5
+BAL,-125.0,Aug11,betonline,,,wins,o11.5
+BAL,-105.0,Aug11,betonline,,,wins,u11.5
+BUF,-180.0,Aug11,betonline,,,wins,o11.5
+BUF,150.0,Aug11,betonline,,,wins,u11.5
+CAR,-145.0,Aug11,betonline,,,wins,o6.5
+CAR,115.0,Aug11,betonline,,,wins,u6.5
+CHI,125.0,Aug11,betonline,,,wins,o8.5
+CHI,-155.0,Aug11,betonline,,,wins,u8.5
+CIN,-125.0,Aug11,betonline,,,wins,o9.5
+CIN,-105.0,Aug11,betonline,,,wins,u9.5
+CLE,125.0,Aug11,betonline,,,wins,o5.5
+CLE,-155.0,Aug11,betonline,,,wins,u5.5
+DAL,-150.0,Aug11,betonline,,,wins,o7.5
+DAL,120.0,Aug11,betonline,,,wins,u7.5
+DEN,-125.0,Aug11,betonline,,,wins,o9.5
+DEN,-105.0,Aug11,betonline,,,wins,u9.5
+DET,120.0,Aug11,betonline,,,wins,o10.5
+DET,-150.0,Aug11,betonline,,,wins,u10.5
+GB,-115.0,Aug11,betonline,,,wins,o9.5
+GB,-115.0,Aug11,betonline,,,wins,u9.5
+HOU,-110.0,Aug11,betonline,,,wins,o9.5
+HOU,-120.0,Aug11,betonline,,,wins,u9.5
+IND,-115.0,Aug11,betonline,,,wins,o7.5
+IND,-115.0,Aug11,betonline,,,wins,u7.5
+JAX,-145.0,Aug11,betonline,,,wins,o7.5
+JAX,115.0,Aug11,betonline,,,wins,u7.5
+KC,105.0,Aug11,betonline,,,wins,o11.5
+KC,-135.0,Aug11,betonline,,,wins,u11.5
+LV,145.0,Aug11,betonline,,,wins,o7.5
+LV,-175.0,Aug11,betonline,,,wins,u7.5
+LAC,-120.0,Aug11,betonline,,,wins,o9.5
+LAC,-110.0,Aug11,betonline,,,wins,u9.5
+LA,-140.0,Aug11,betonline,,,wins,o9.5
+LA,110.0,Aug11,betonline,,,wins,u9.5
+MIA,170.0,Aug11,betonline,,,wins,o8.5
+MIA,-210.0,Aug11,betonline,,,wins,u8.5
+MIN,-165.0,Aug11,betonline,,,wins,o8.5
+MIN,135.0,Aug11,betonline,,,wins,u8.5
+NE,-105.0,Aug11,betonline,,,wins,o8.5
+NE,-125.0,Aug11,betonline,,,wins,u8.5
+NO,155.0,Aug11,betonline,,,wins,o5.5
+NO,-190.0,Aug11,betonline,,,wins,u5.5
+NYG,110.0,Aug11,betonline,,,wins,o5.5
+NYG,-140.0,Aug11,betonline,,,wins,u5.5
+NYJ,-145.0,Aug11,betonline,,,wins,o5.5
+NYJ,115.0,Aug11,betonline,,,wins,u5.5
+PHI,110.0,Aug11,betonline,,,wins,o11.5
+PHI,-140.0,Aug11,betonline,,,wins,u11.5
+PIT,-115.0,Aug11,betonline,,,wins,o8.5
+PIT,-115.0,Aug11,betonline,,,wins,u8.5
+SF,-110.0,Aug11,betonline,,,wins,o10.5
+SF,-120.0,Aug11,betonline,,,wins,u10.5
+SEA,-155.0,Aug11,betonline,,,wins,o7.5
+SEA,125.0,Aug11,betonline,,,wins,u7.5
+TB,-115.0,Aug11,betonline,,,wins,o9.5
+TB,-115.0,Aug11,betonline,,,wins,u9.5
+TEN,-155.0,Aug11,betonline,,,wins,o5.5
+TEN,125.0,Aug11,betonline,,,wins,u5.5
+WAS,-120.0,Aug11,betonline,,,wins,o9.5
+WAS,-110.0,Aug11,betonline,,,wins,u9.5
+ARI,-400.0,Aug11,betonline,,,wins,o6.5
+ARI,300.0,Aug11,betonline,,,wins,u6.5
+ARI,225.0,Aug11,betonline,,,wins,o10.5
+ARI,-285.0,Aug11,betonline,,,wins,u10.5
+ATL,-450.0,Aug11,betonline,,,wins,o5.5
+ATL,325.0,Aug11,betonline,,,wins,u5.5
+ATL,220.0,Aug11,betonline,,,wins,o9.5
+ATL,-280.0,Aug11,betonline,,,wins,u9.5
+BAL,-400.0,Aug11,betonline,,,wins,o9.5
+BAL,300.0,Aug11,betonline,,,wins,u9.5
+BAL,300.0,Aug11,betonline,,,wins,o13.5
+BAL,-400.0,Aug11,betonline,,,wins,u13.5
+BUF,-500.0,Aug11,betonline,,,wins,o9.5
+BUF,350.0,Aug11,betonline,,,wins,u9.5
+BUF,240.0,Aug11,betonline,,,wins,o13.5
+BUF,-300.0,Aug11,betonline,,,wins,u13.5
+CAR,-500.0,Aug11,betonline,,,wins,o4.5
+CAR,350.0,Aug11,betonline,,,wins,u4.5
+CAR,195.0,Aug11,betonline,,,wins,o8.5
+CAR,-250.0,Aug11,betonline,,,wins,u8.5
+CHI,-230.0,Aug11,betonline,,,wins,o6.5
+CHI,190.0,Aug11,betonline,,,wins,u6.5
+CHI,350.0,Aug11,betonline,,,wins,o10.5
+CHI,-500.0,Aug11,betonline,,,wins,u10.5
+CIN,-400.0,Aug11,betonline,,,wins,o7.5
+CIN,300.0,Aug11,betonline,,,wins,u7.5
+CIN,275.0,Aug11,betonline,,,wins,o11.5
+CIN,-350.0,Aug11,betonline,,,wins,u11.5
+CLE,-280.0,Aug11,betonline,,,wins,o3.5
+CLE,220.0,Aug11,betonline,,,wins,u3.5
+CLE,375.0,Aug11,betonline,,,wins,o7.5
+CLE,-550.0,Aug11,betonline,,,wins,u7.5
+DAL,-400.0,Aug11,betonline,,,wins,o5.5
+DAL,300.0,Aug11,betonline,,,wins,u5.5
+DAL,200.0,Aug11,betonline,,,wins,o9.5
+DAL,-260.0,Aug11,betonline,,,wins,u9.5
+DEN,-325.0,Aug11,betonline,,,wins,o7.5
+DEN,250.0,Aug11,betonline,,,wins,u7.5
+DEN,250.0,Aug11,betonline,,,wins,o11.5
+DEN,-325.0,Aug11,betonline,,,wins,u11.5
+DET,-230.0,Aug11,betonline,,,wins,o8.5
+DET,190.0,Aug11,betonline,,,wins,u8.5
+DET,350.0,Aug11,betonline,,,wins,o12.5
+DET,-500.0,Aug11,betonline,,,wins,u12.5
+GB,-300.0,Aug11,betonline,,,wins,o7.5
+GB,240.0,Aug11,betonline,,,wins,u7.5
+GB,250.0,Aug11,betonline,,,wins,o11.5
+GB,-325.0,Aug11,betonline,,,wins,u11.5
+HOU,-270.0,Aug11,betonline,,,wins,o7.5
+HOU,210.0,Aug11,betonline,,,wins,u7.5
+HOU,325.0,Aug11,betonline,,,wins,o11.5
+HOU,-450.0,Aug11,betonline,,,wins,u11.5
+IND,-325.0,Aug11,betonline,,,wins,o5.5
+IND,250.0,Aug11,betonline,,,wins,u5.5
+IND,275.0,Aug11,betonline,,,wins,o9.5
+IND,-350.0,Aug11,betonline,,,wins,u9.5
+JAX,-400.0,Aug11,betonline,,,wins,o5.5
+JAX,300.0,Aug11,betonline,,,wins,u5.5
+JAX,205.0,Aug11,betonline,,,wins,o9.5
+JAX,-265.0,Aug11,betonline,,,wins,u9.5
+KC,-290.0,Aug11,betonline,,,wins,o9.5
+KC,230.0,Aug11,betonline,,,wins,u9.5
+KC,350.0,Aug11,betonline,,,wins,o13.5
+KC,-500.0,Aug11,betonline,,,wins,u13.5
+LV,-250.0,Aug11,betonline,,,wins,o5.5
+LV,195.0,Aug11,betonline,,,wins,u5.5
+LV,375.0,Aug11,betonline,,,wins,o9.5
+LV,-550.0,Aug11,betonline,,,wins,u9.5
+LAC,-300.0,Aug11,betonline,,,wins,o7.5
+LAC,240.0,Aug11,betonline,,,wins,u7.5
+LAC,250.0,Aug11,betonline,,,wins,o11.5
+LAC,-325.0,Aug11,betonline,,,wins,u11.5
+LA,-400.0,Aug11,betonline,,,wins,o7.5
+LA,300.0,Aug11,betonline,,,wins,u7.5
+LA,220.0,Aug11,betonline,,,wins,o11.5
+LA,-280.0,Aug11,betonline,,,wins,u11.5
+MIA,-180.0,Aug11,betonline,,,wins,o6.5
+MIA,150.0,Aug11,betonline,,,wins,u6.5
+MIA,450.0,Aug11,betonline,,,wins,o10.5
+MIA,-700.0,Aug11,betonline,,,wins,u10.5
+MIN,-400.0,Aug11,betonline,,,wins,o6.5
+MIN,300.0,Aug11,betonline,,,wins,u6.5
+MIN,190.0,Aug11,betonline,,,wins,o10.5
+MIN,-230.0,Aug11,betonline,,,wins,u10.5
+NE,-700.0,Aug11,betonline,,,wins,o5.5
+NE,450.0,Aug11,betonline,,,wins,u5.5
+NE,170.0,Aug11,betonline,,,wins,o9.5
+NE,-210.0,Aug11,betonline,,,wins,u9.5
+NO,-230.0,Aug11,betonline,,,wins,o3.5
+NO,190.0,Aug11,betonline,,,wins,u3.5
+NO,325.0,Aug11,betonline,,,wins,o7.5
+NO,-450.0,Aug11,betonline,,,wins,u7.5
+NYG,-350.0,Aug11,betonline,,,wins,o3.5
+NYG,275.0,Aug11,betonline,,,wins,u3.5
+NYG,275.0,Aug11,betonline,,,wins,o7.5
+NYG,-350.0,Aug11,betonline,,,wins,u7.5
+NYJ,-600.0,Aug11,betonline,,,wins,o3.5
+NYJ,400.0,Aug11,betonline,,,wins,u3.5
+NYJ,205.0,Aug11,betonline,,,wins,o7.5
+NYJ,-265.0,Aug11,betonline,,,wins,u7.5
+PHI,-260.0,Aug11,betonline,,,wins,o9.5
+PHI,200.0,Aug11,betonline,,,wins,u9.5
+PHI,375.0,Aug11,betonline,,,wins,o13.5
+PHI,-550.0,Aug11,betonline,,,wins,u13.5
+PIT,-300.0,Aug11,betonline,,,wins,o6.5
+PIT,240.0,Aug11,betonline,,,wins,u6.5
+PIT,275.0,Aug11,betonline,,,wins,o10.5
+PIT,-350.0,Aug11,betonline,,,wins,u10.5
+SF,-325.0,Aug11,betonline,,,wins,o8.5
+SF,250.0,Aug11,betonline,,,wins,u8.5
+SF,275.0,Aug11,betonline,,,wins,o12.5
+SF,-350.0,Aug11,betonline,,,wins,u12.5
+SEA,-500.0,Aug11,betonline,,,wins,o5.5
+SEA,350.0,Aug11,betonline,,,wins,u5.5
+SEA,200.0,Aug11,betonline,,,wins,o9.5
+SEA,-250.0,Aug11,betonline,,,wins,u9.5
+TB,-325.0,Aug11,betonline,,,wins,o7.5
+TB,250.0,Aug11,betonline,,,wins,u7.5
+TB,275.0,Aug11,betonline,,,wins,o11.5
+TB,-350.0,Aug11,betonline,,,wins,u11.5
+TEN,-650.0,Aug11,betonline,,,wins,o3.5
+TEN,425.0,Aug11,betonline,,,wins,u3.5
+TEN,200.0,Aug11,betonline,,,wins,o7.5
+TEN,-260.0,Aug11,betonline,,,wins,u7.5
+WAS,-325.0,Aug11,betonline,,,wins,o7.5
+WAS,250.0,Aug11,betonline,,,wins,u7.5
+WAS,275.0,Aug11,betonline,,,wins,o11.5
+WAS,-350.0,Aug11,betonline,,,wins,u11.5
