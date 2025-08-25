@@ -95,6 +95,13 @@ def get_prob(row, prob_dct):
         result = row["result"]
         return event_probability(result, win_prob_dct[row["team"]])
         # result is something like o8.5 or u8.5
+    elif row["raw_market"] == "div_pos":
+        team = row["team"]
+        pos = row["result"]
+        return prob_dct[f"div_pos_{int(pos)}"].get(team, 0)
+    elif row["raw_market"] == "div_order":
+        ser = prob_dct["div_order"]
+        return ser.get(row["team"], 0)
 
 def name_market(row):
     if row["raw_market"] == "division":
@@ -119,6 +126,10 @@ def name_market(row):
         return f"Stage of Elim - {row['result']}"
     elif row["raw_market"] == "wins":
         return f"Reg Season Wins - {row['result']}"
+    elif row["raw_market"] == "div_pos":
+        return f"Division Position - {row['result']}"
+    elif row["raw_market"] == "div_order":
+        return "Division Order"
     
 
 def display_plus(s):
@@ -160,7 +171,8 @@ def matchup_prob(matchup_list):
 # "1":0
 # "2":0
 # ... (Are the keys really strings?)
-def compare_market(raw_data, champ_data, pivot_all, matchup_list, win_dct):
+# rank_dict_div has keys like "BAL-PIT-CIN-CLE"
+def compare_market(raw_data, champ_data, pivot_all, matchup_list, win_dct, rank_dict_div, rank_dict_team):
     market = pd.read_csv("data/markets.csv")
     market = market[(market["odds"].notna()) & (market["team"].notna())].copy()
     market.rename({"market": "raw_market"}, axis=1, inplace=True)
@@ -171,6 +183,15 @@ def compare_market(raw_data, champ_data, pivot_all, matchup_list, win_dct):
     stage_dct = {}
     for stage in champ_data["Stage"].unique():
         stage_dct[stage] = make_stage_series(champ_data, stage)
+
+    # Keys are exact division position
+    # Values are a Series with index teams, values probabilities of having that exact position
+    exact_pos_dct = {}
+    for i in range(1,5):
+        temp_prob_dct = {}
+        for team, dct in rank_dict_team.items():
+            temp_prob_dct[team] = dct[i]
+        exact_pos_dct[f"div_pos_{i}"] = pd.Series(temp_prob_dct)
 
     total_count = len(matchup_list)
     # going from raw counts to probabilities
@@ -195,12 +216,14 @@ def compare_market(raw_data, champ_data, pivot_all, matchup_list, win_dct):
         "wins": win_prob_dct,
         "undefeated": pivot_all["Last undefeated"],
         "winless": pivot_all["Last winless"],
-        "matchup": ser_matchup
+        "matchup": ser_matchup,
+        "div_order": rank_dict_div
     }
     prob_dct.update(stage_dct)
+    prob_dct.update(exact_pos_dct)
     market["prob"] = market.apply(lambda row: get_prob(row, prob_dct), axis=1)
     market["market"] = market.apply(name_market, axis=1)
     market["kelly"] = market.apply(lambda row: kelly(row["prob"], row["odds"]), axis=1)
-    rec = market[market["kelly"] > 0].sort_values("kelly", ascending=False)
-    rec["odds"] = rec["odds"].astype(str).map(display_plus)
+    rec = market[market["kelly"] > 0].sort_values("odds", ascending=False)
+    rec["odds"] = rec["odds"].astype(int).astype(str).map(display_plus)
     return rec[["team", "market", "odds", "prob", "site", "kelly"]].reset_index(drop=True)

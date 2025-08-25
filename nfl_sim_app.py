@@ -222,8 +222,14 @@ if sim_button or ("rc" in st.session_state):
     # Longest win streak for each team
     streak_dict = {t:{i:0 for i in range(18)} for t in teams}
 
+    # rank_dict contains the exact rank 1-4 (so 24 items per key)
+    # rank_dict1 is by team
     rank_dict = {div:{} for div in div_dict.keys()}
     rank_dict1 = {t:{} for t in teams}
+    # rank_dict_div will be the same as rank_dict but with strings instead of tuples
+    rank_dict_div = {}
+    # rank_dict_team will be rank_dict1 converted to probabilities rather than raw counts
+    rank_dict_team = {}
 
     # List of terms like {'last_undefeated': ('KC',), 'last_winless': ('TB',)}
     last_list = []
@@ -299,6 +305,15 @@ if sim_button or ("rc" in st.session_state):
     for d in rank_dict.keys():
        rank_dict[d] = {i:j/reps for i,j in rank_dict[d].items()}
 
+    # For serialization purposes, need to convert to strings
+    # We also put all divisions together into a single dictionary
+    for d in rank_dict.keys():
+       for i,j in rank_dict[d].items():
+           rank_dict_div["-".join(i)] = j
+
+    for team in rank_dict1.keys():
+       rank_dict_team[team] = {i:j/reps for i,j in rank_dict1[team].items()}
+
     st.session_state["rd"] = rank_dict
 
     end = time.time()
@@ -359,7 +374,7 @@ if sim_button or ("rc" in st.session_state):
     st.session_state['conference_chart'] = conference_chart
     st.session_state['superbowl_chart'] = superbowl_chart
     st.session_state['best_chart'] = best_chart
-    st.session_state['raw_data'] = compare_market(raw_data, champ_data, pivot_all, matchup_list, win_dict)
+    st.session_state['raw_data'] = compare_market(raw_data, champ_data, pivot_all, matchup_list, win_dict, rank_dict_div, rank_dict_team)
     st.session_state['full_standings'] = playoff_full
     st.session_state['pivot'] = pivot_all
 
