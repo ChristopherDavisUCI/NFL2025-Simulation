@@ -1,580 +1,383 @@
-
-"""
-Fast NFL-style standings & tiebreakers with caching.
-Updated from original version by ChatGPT
-
-Public API
-----------
-- make_ind(df_scores) -> pd.DataFrame
-- Standings(df_scores: pd.DataFrame, team_to_division: dict[str, str])
-
-`df_scores` schema (expected columns):
-  - home_team, away_team : str
-  - home_score, away_score : numeric
-  - div_game, conf_game : bool
-  - schedule_playoff : optional bool (rows with True are excluded)
-
-`team_to_division`:
-  mapping team -> division string such as "AFC East", "NFC North", etc.
-  Conference is inferred as the first 3 characters (e.g., "AFC", "NFC").
-
-Outputs
--------
-Standings(...).standings : DataFrame indexed by Team with columns
-  - Wins, Losses, Ties, WLT
-  - Points_scored, Points_allowed
-  - Division, Conference
-  - Division_rank
-
-Standings(...).div_ranks : dict[division] -> list of teams ranked within division
-Standings(...).playoffs : dict[conf] -> list of 7 teams (4 division winners + 3 wild cards)
-Standings(...).best_reg_record : team with better regular-season record among two conference #1 seeds
-
-Notes
------
-This module emphasizes speed by:
-  * building a long-form table once via vectorized ops (make_ind)
-  * computing all heavy groupbys/pivots exactly once in _Caches
-  * reusing cached Series/matrices in all tiebreakers
-"""
-
-from __future__ import annotations
-
-from dataclasses import dataclass
-from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 import numpy as np
 import pandas as pd
-import os
+from math import isclose
 
-from name_helper import get_abbr
-
-
-# -----------------------------
-# Long-form individual game table
-# -----------------------------
-
-def make_ind(df_scores: pd.DataFrame) -> pd.DataFrame:
-    """Vectorized long-form: 2 rows per game (home, away).
-
-    Excludes rows where schedule_playoff == True if present.
-    Adds:
-      - Team, Opponent
-      - Points_scored, Points_allowed
-      - Outcome ("Win"/"Tie"/"Loss")
-      - Outcome_points (Win=1.0, Tie=0.5, Loss=0.0)
-    """
-    df = df_scores.copy()
-    if "schedule_playoff" in df.columns:
-        df = df.loc[~df["schedule_playoff"]].copy()
-
-    needed = ["home_team","away_team","div_game","conf_game","home_score","away_score"]
-    missing = [c for c in needed if c not in df.columns]
-    if missing:
-        raise ValueError(f"df_scores is missing required columns: {missing}")
-
-    # build home/away "views"
-    home = df.loc[:, ["home_team","away_team","div_game","conf_game","home_score","away_score"]].copy()
-    home.columns = ["Team","Opponent","div_game","conf_game","Points_scored","Points_allowed"]
-
-    away = df.loc[:, ["away_team","home_team","div_game","conf_game","away_score","home_score"]].copy()
-    away.columns = ["Team","Opponent","div_game","conf_game","Points_scored","Points_allowed"]
-
-    df_ind = pd.concat([home, away], ignore_index=True)
-
-    # normalize team codes early (e.g., LAR->LA) to keep everything consistent
-    df_ind['Team'] = df_ind['Team'].map(get_abbr)
-    df_ind['Opponent'] = df_ind['Opponent'].map(get_abbr)
-
-    # numeric outcome & label without value_counts()
-    ps = df_ind["Points_scored"].to_numpy()
-    pa = df_ind["Points_allowed"].to_numpy()
-    p = (ps > pa).astype(float)
-    ties = (ps == pa)
-    p[ties] = 0.5
-    df_ind["Outcome_points"] = p
-
-    outcome = np.empty(len(df_ind), dtype=object)
-    outcome[p == 1.0] = "Win"
-    outcome[p == 0.5] = "Tie"
-    outcome[p == 0.0] = "Loss"
-    df_ind["Outcome"] = outcome
-
-    # normalize types
-    for c in ["div_game","conf_game"]:
-        if c in df_ind.columns:
-            df_ind[c] = df_ind[c].astype(bool)
-
-    return df_ind
+div_series = pd.read_csv("data/divisions.csv", index_col=0).squeeze()
+div_series.name = None
+teams = sorted(list(div_series.index))
+tol = .0001
 
 
-# -----------------------------
-# Internal Caches
-# -----------------------------
 
-@dataclass
-class _Caches:
-    df_ind: pd.DataFrame
-    standings_index: pd.Index
-    team_to_div: Dict[str, str]
+reverse_dict = {'Win':'Loss','Loss':'Win', 'Tie':'Tie'}
 
-    def __post_init__(self):
-        di = self.df_ind
+def get_outcome(row):
+    s = row["Points_scored"]
+    a = row["Points_allowed"]
+    if s > a:
+        return "Win"
+    elif s < a:
+        return "Loss"
+    elif s == a:
+        return "Tie"
 
-        # Masks
-        self._div_mask  = di["div_game"].to_numpy() if "div_game" in di.columns else np.zeros(len(di), dtype=bool)
-        self._conf_mask = di["conf_game"].to_numpy() if "conf_game" in di.columns else np.zeros(len(di), dtype=bool)
-
-        # Opponent sets by team
-        self.oppsets: Dict[str,set] = (di.groupby("Team")["Opponent"]
-                                         .agg(lambda s: set(s.tolist()))
-                                         .to_dict())
-
-        # Set of teams defeated (strength of victory)
-        self.victory_sets: Dict[str,set] = (
-            di.loc[di["Outcome_points"] == 1.0]
-              .groupby("Team")["Opponent"]
-              .agg(lambda s: set(s.tolist()))
-              .to_dict()
-        )
-
-        # Mean outcome points head-to-head matrix
-        self.h2h = di.pivot_table(index="Team", columns="Opponent",
-                                  values="Outcome_points", aggfunc="mean")
-
-        # Overall WLT (mean outcome points)
-        self.wlt_all = di.groupby("Team")["Outcome_points"].mean()
-
-        # Division and conference WLT
-        if self._div_mask.any():
-            self.wlt_div  = di.loc[self._div_mask].groupby("Team")["Outcome_points"].mean()
+def get_WLT(games):
+    s = games.Outcome.value_counts()
+    try:
+        return (s.get("Win",0) + 0.5*s.get("Tie",0))/len(games)
+    except:
+        if len(games) == 0:
+            return 0
         else:
-            self.wlt_div  = pd.Series(dtype=float)
+            raise
 
-        if self._conf_mask.any():
-            self.wlt_conf = di.loc[self._conf_mask].groupby("Team")["Outcome_points"].mean()
-        else:
-            self.wlt_conf = pd.Series(dtype=float)
+def get_strength(teams, df_ind):
+    return get_WLT(df_ind[df_ind["Team"].isin(teams)])
 
-        # Points totals overall & conference
-        sums = di.groupby("Team")[["Points_scored","Points_allowed"]].sum()
-        self.ps = sums["Points_scored"]
-        self.pa = sums["Points_allowed"]
+def get_victories(team, df_ind):
+    return set(df_ind["Opponent"][(df_ind["Team"] == team) & (df_ind["Outcome"] == "Win")])
 
-        if self._conf_mask.any():
-            conf_sums = di.loc[self._conf_mask].groupby("Team")[["Points_scored","Points_allowed"]].sum()
-            self.ps_conf = conf_sums["Points_scored"]
-            self.pa_conf = conf_sums["Points_allowed"]
-        else:
-            self.ps_conf = pd.Series(dtype=float)
-            self.pa_conf = pd.Series(dtype=float)
+def get_opps(team, df_ind):
+    return set(df_ind["Opponent"][df_ind["Team"] == team])
 
-        # Ranks (lower = better). We'll store negative combos when needed.
-        self.rank_ps = (-self.ps).rank(method="min")
-        self.rank_pa = ( self.pa).rank(method="min")
+def get_common(teams, df_ind):
+    opps = []
+    for t in teams:
+        opps.append(get_opps(t, df_ind))
+    return set.intersection(*opps)
 
-        # Per-conference ranks
-        self.team_to_conf: Dict[str,str] = {t: (self.team_to_div[t][:3] if t in self.team_to_div else "")
-                                            for t in self.standings_index}
-        self.rank_ps_conf: Dict[str, pd.Series] = {}
-        self.rank_pa_conf: Dict[str, pd.Series] = {}
-
-        for conf in {"AFC","NFC"}:
-            idx = [t for t in self.standings_index if self.team_to_conf.get(t,"") == conf]
-            if idx:
-                self.rank_ps_conf[conf] = (-self.ps.reindex(idx)).rank(method="min")
-                self.rank_pa_conf[conf] = ( self.pa.reindex(idx)).rank(method="min")
-            else:
-                self.rank_ps_conf[conf] = pd.Series(dtype=float)
-                self.rank_pa_conf[conf] = pd.Series(dtype=float)
-
-
-# -----------------------------
-# Small utilities
-# -----------------------------
-
-def _get_conf(team: str, team_to_div: Dict[str,str]) -> str:
-    d = team_to_div.get(team, "")
-    return d[:3] if d else ""
-
-def analyze_dict(metric: Dict[str, float], teams: Optional[Sequence[str]] = None) -> Optional[str]:
-    """Pick the single team with the maximum metric. Return None if still tied/NaN-only.
-
-    metric: mapping team->score (higher is better)
-    teams: optional subset; if None, uses metric.keys()
-    """
-    if teams is None:
-        teams = list(metric.keys())
-    # limit to teams, drop NaNs
-    s = pd.Series(metric, dtype=float).reindex(teams)
-    s = s.dropna()
-    if s.empty:
+# This seems to assume teams are either all in the same division
+# or all in different divisions.
+def analyze_dict(d, df_ind, df_standings):
+    outs = sorted(d.values(),reverse=True)
+    if isclose(outs[0],outs[-1],abs_tol=tol):
         return None
-    maxv = s.max()
-    winners = s.index[s == maxv].tolist()
-    return winners[0] if len(winners) == 1 else None
+    top_teams = [k for k in d.keys() if isclose(d[k],outs[0],abs_tol = tol)]
+    if len(top_teams) == 1:
+        return top_teams[0]
+    if div_series[top_teams[0]] == div_series[top_teams[1]]:
+        return break_tie_div(top_teams,df_ind,df_standings)
+    else:
+        return break_tie_conf(top_teams,df_ind,df_standings)
 
-def get_common(teams: Sequence[str], caches: _Caches) -> set:
-    sets = [caches.oppsets.get(t, set()) for t in teams]
-    return set.intersection(*sets) if sets else set()
+break_tie_fns = {}
 
-def wlt_vs_subset(team: str, opps: set, caches: _Caches) -> float:
-    if not opps:
-        return np.nan
-    row = caches.h2h.loc[team, list(opps)] if team in caches.h2h.index else None
-    if row is None:
-        return np.nan
-    return float(row.mean(skipna=True))
+# Are there any numerical precision problems here?
+def fd21(teams,df_ind,df_standings):
+    wlt_dict = {teams[0]:get_WLT(df_ind[(df_ind["Team"] == teams[0]) & (df_ind["Opponent"] == teams[1])])}
+    wlt_dict[teams[1]] = get_WLT(df_ind[(df_ind["Team"] == teams[1]) & (df_ind["Opponent"] == teams[0])])
+    return analyze_dict(wlt_dict, df_ind, df_standings)
 
-def strength_of_set(opps: set, caches: _Caches) -> float:
-    if not opps:
-        return np.nan
-    return float(caches.wlt_all.reindex(list(opps)).mean())
+break_tie_fns[("div",2,1)] = fd21
 
-def point_diff_over_subset(team: str, opps: set, df_ind: pd.DataFrame) -> float:
-    if not opps:
-        return np.nan
-    sub = df_ind[(df_ind["Team"] == team) & (df_ind["Opponent"].isin(list(opps)))]
-    if sub.empty:
-        return np.nan
-    sums = sub[["Points_scored","Points_allowed"]].sum()
-    return float(sums["Points_scored"] - sums["Points_allowed"])
+def fd22(teams,df_ind,df_standings):
+    div_dict = {t: get_WLT(df_ind[(df_ind.Team == t) & (df_ind.div_game)]) for t in teams}
+    return analyze_dict(div_dict, df_ind, df_standings)
 
+break_tie_fns[("div",2,2)] = fd22
 
-# -----------------------------
-# Tiebreakers (Division)
-# -----------------------------
+def fd23(teams,df_ind,df_standings):
+    common = get_common(teams,df_ind)
+    common_dict = {t: get_WLT(df_ind[(df_ind.Team == t) & (df_ind.Opponent.isin(common))]) for t in teams}
+    return analyze_dict(common_dict, df_ind, df_standings)
 
-def tb_div_h2h(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    if len(teams) == 2:
-        a,b = teams
-        m = {a: float(caches.h2h.loc[a, b]) if (a in caches.h2h.index and b in caches.h2h.columns) else np.nan,
-             b: float(caches.h2h.loc[b, a]) if (b in caches.h2h.index and a in caches.h2h.columns) else np.nan}
-        return analyze_dict(m, teams)
-    # multi-team: average of H2H round robin (mean of row vs others)
-    m = {}
+break_tie_fns[("div",2,3)] = fd23
+
+def fd24(teams,df_ind,df_standings):
+    conf_dict = {t: get_WLT(df_ind[(df_ind.Team == t) & (df_ind.conf_game)]) for t in teams}
+    return analyze_dict(conf_dict, df_ind, df_standings)
+
+break_tie_fns[("div",2,4)] = fd24
+
+def fd25(teams,df_ind,df_standings):
+    wlt_dict = {t: get_strength(get_victories(t,df_ind),df_ind) for t in teams}
+    return analyze_dict(wlt_dict, df_ind, df_standings)
+
+break_tie_fns[("div",2,5)] = fd25
+break_tie_fns[("div",3,5)] = fd25
+
+def fd26(teams,df_ind,df_standings):
+    wlt_dict = {t: get_strength(get_opps(t,df_ind),df_ind) for t in teams}
+    return analyze_dict(wlt_dict, df_ind, df_standings)
+
+break_tie_fns[("div",2,6)] = fd26
+break_tie_fns[("div",3,6)] = fd26
+
+# The negatives are because we want "lower rank" to correspond to higher numbers
+# Maybe would be better to have a reverse flag in the dictionary
+def fd27(teams,df_ind,df_standings):
+    conf = div_series[teams[0]][:3]
+    ps_series = (-df_standings.query("Conference==@conf").Points_scored).rank(method="min")
+    pa_series = df_standings.query("Conference==@conf").Points_allowed.rank(method="min")
+    rank_dict = {t: -ps_series[t] - pa_series[t] for t in teams}
+    return analyze_dict(rank_dict, df_ind, df_standings)
+
+break_tie_fns[("div",2,7)] = fd27
+break_tie_fns[("div",3,7)] = fd27
+
+# The negatives are because we want "lower rank" to correspond to higher numbers
+def fd28(teams,df_ind,df_standings):
+    ps_series = (-df_standings.Points_scored).rank(method="min")
+    pa_series = df_standings.Points_allowed.rank(method="min")
+    rank_dict = {t: -ps_series[t] - pa_series[t] for t in teams}
+    return analyze_dict(rank_dict, df_ind, df_standings)
+
+break_tie_fns[("div",2,8)] = fd28
+break_tie_fns[("div",3,8)] = fd28
+
+def fd29(teams,df_ind,df_standings):
+    common = get_common(teams,df_ind)
+    pt_dict = {}
     for t in teams:
-        vs = [u for u in teams if u != t and u in caches.h2h.columns and t in caches.h2h.index]
-        if not vs:
-            m[t] = np.nan
-        else:
-            m[t] = float(caches.h2h.loc[t, vs].mean(skipna=True))
-    return analyze_dict(m, teams)
+        df_common = df_ind[["Points_scored","Points_allowed"]][(df_ind.Team == t) & (df_ind.Opponent.isin(common))].sum()
+        pt_dict[t] = df_common["Points_scored"]-df_common["Points_allowed"]
+    return analyze_dict(pt_dict, df_ind, df_standings)
 
-def tb_div_divWLT(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    m = {t: float(caches.wlt_div.get(t, np.nan)) for t in teams}
-    return analyze_dict(m, teams)
+break_tie_fns[("div",2,9)] = fd29
+break_tie_fns[("div",3,9)] = fd29
 
-def tb_div_common(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    common = get_common(teams, caches)
-    m = {t: wlt_vs_subset(t, common, caches) for t in teams}
-    return analyze_dict(m, teams)
-
-def tb_div_confWLT(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    m = {t: float(caches.wlt_conf.get(t, np.nan)) for t in teams}
-    return analyze_dict(m, teams)
-
-def tb_div_strength_victory(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    m = {t: strength_of_set(caches.victory_sets.get(t, set()), caches) for t in teams}
-    return analyze_dict(m, teams)
-
-def tb_div_strength_schedule(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    m = {t: strength_of_set(caches.oppsets.get(t, set()), caches) for t in teams}
-    return analyze_dict(m, teams)
-
-def tb_div_points_rank_conf(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    # lower rank number is better; use negative for "higher is better"
-    conf = caches.team_to_conf.get(teams[0], "")
-    ps_r = caches.rank_ps_conf.get(conf, pd.Series(dtype=float))
-    pa_r = caches.rank_pa_conf.get(conf, pd.Series(dtype=float))
-    m = {}
+# Would it be better to use df_standings for this?
+def fd210(teams,df_ind,df_standings):
+    pt_dict = {}
     for t in teams:
-        if t in ps_r.index and t in pa_r.index:
-            m[t] = -float(ps_r[t]) - float(pa_r[t])
-        else:
-            m[t] = np.nan
-    return analyze_dict(m, teams)
+        df_common = df_ind[["Points_scored","Points_allowed"]][df_ind.Team == t].sum()
+        pt_dict[t] = df_common["Points_scored"]-df_common["Points_allowed"]
+    return analyze_dict(pt_dict, df_ind, df_standings)
 
-def tb_div_points_rank_all(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    m = {t: -float(caches.rank_ps.get(t, np.nan)) - float(caches.rank_pa.get(t, np.nan)) for t in teams}
-    return analyze_dict(m, teams)
+break_tie_fns[("div",2,10)] = fd210
+break_tie_fns[("div",3,10)] = fd210
 
-def tb_div_point_diff_common(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    common = get_common(teams, caches)
-    m = {t: point_diff_over_subset(t, common, caches.df_ind) for t in teams}
-    return analyze_dict(m, teams)
+# How does the coin toss work for three teams?
+def fd212(teams,df_ind,df_standings):
+    return np.random.choice(teams)
 
-def tb_div_point_diff_all(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    m = {t: float(caches.ps.get(t, np.nan) - caches.pa.get(t, np.nan)) for t in teams}
-    return analyze_dict(m, teams)
+break_tie_fns[("div",2,12)] = fd212
+break_tie_fns[("div",3,12)] = fd212
 
-DIV_TB_CHAIN = [
-    tb_div_h2h,
-    tb_div_divWLT,
-    tb_div_common,
-    tb_div_confWLT,
-    tb_div_strength_victory,
-    tb_div_strength_schedule,
-    tb_div_points_rank_conf,
-    tb_div_points_rank_all,
-    tb_div_point_diff_common,
-    tb_div_point_diff_all,
-]
+def fd31(teams,df_ind,df_standings):
+    df = df_ind[df_ind["Team"].isin(teams) & df_ind["Opponent"].isin(teams)]
+    wlt_dict = {t: get_WLT(df[df.Team == t]) for t in teams}
+    return analyze_dict(wlt_dict, df_ind, df_standings)
 
+break_tie_fns[("div",3,1)] = fd31
 
-# -----------------------------
-# Tiebreakers (Conference / Wildcard)
-# -----------------------------
+def fd32(teams,df_ind,df_standings):
+    wlt_dict = {t: get_WLT(df_ind[(df_ind.Team == t) & (df_ind.div_game)]) for t in teams}
+    return analyze_dict(wlt_dict, df_ind, df_standings)
 
-def tb_conf_h2h(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    # average round-robin within tied set
-    return tb_div_h2h(teams, caches)
+break_tie_fns[("div",3,2)] = fd32
 
-def tb_conf_confWLT(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    return tb_div_confWLT(teams, caches)
+def fd33(teams,df_ind,df_standings):
+    opps = []
+    for t in teams:
+        opps.append(get_opps(t,df_ind))
+    common = set.intersection(*opps)
+    wlt_dict = {t: get_WLT(df_ind[(df_ind.Team == t) & (df_ind.Opponent.isin(common))]) for t in teams}
+    return analyze_dict(wlt_dict, df_ind, df_standings)
 
-def tb_conf_common4(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    # only if each pair has at least 4 common opponents; approximate via intersection size
-    common = get_common(teams, caches)
+break_tie_fns[("div",3,3)] = fd33
+
+def fd34(teams,df_ind,df_standings):
+    wlt_dict = {t: get_WLT(df_ind[(df_ind.Team == t) & (df_ind.conf_game)]) for t in teams}
+    return analyze_dict(wlt_dict, df_ind, df_standings)
+
+break_tie_fns[("div",3,4)] = fd34
+
+def fc21(teams,df_ind,df_standings):
+    df_head = df_ind[(df_ind["Team"] == teams[0]) & (df_ind["Opponent"] == teams[1])]
+    if len(df_head) == 0:
+        return None
+    wlt_dict = {teams[0]:get_WLT(df_ind[(df_ind["Team"] == teams[0]) & (df_ind["Opponent"] == teams[1])])}
+    wlt_dict[teams[1]] = get_WLT(df_ind[(df_ind["Team"] == teams[1]) & (df_ind["Opponent"] == teams[0])])
+    return analyze_dict(wlt_dict, df_ind, df_standings)
+
+break_tie_fns[("conf",2,1)] = fc21
+
+def fc23(teams,df_ind,df_standings):
+    common = get_common(teams,df_ind)
     if len(common) < 4:
         return None
-    m = {t: wlt_vs_subset(t, common, caches) for t in teams}
-    return analyze_dict(m, teams)
+    common_dict = {t: get_WLT(df_ind[(df_ind.Team == t) & (df_ind.Opponent.isin(common))]) for t in teams}
+    return analyze_dict(common_dict, df_ind, df_standings)
 
-def tb_conf_strength_victory(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    return tb_div_strength_victory(teams, caches)
+break_tie_fns[("conf",2,3)] = fc23
 
-def tb_conf_strength_schedule(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    return tb_div_strength_schedule(teams, caches)
+def fc28(teams,df_ind,df_standings):
+    pt_dict = {}
+    for t in teams:
+        df_conf = df_ind[["Points_scored","Points_allowed"]][(df_ind.Team == t) & (df_ind.conf_game)].sum()
+        pt_dict[t] = df_conf["Points_scored"]-df_conf["Points_allowed"]
+    return analyze_dict(pt_dict, df_ind, df_standings)
 
-def tb_conf_points_rank_conf(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    return tb_div_points_rank_conf(teams, caches)
+break_tie_fns[("conf",2,8)] = fc28
 
-def tb_conf_points_rank_all(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    return tb_div_points_rank_all(teams, caches)
+break_tie_fns[("conf",2,2)] = break_tie_fns[("div",2,4)]
+break_tie_fns[("conf",2,4)] = break_tie_fns[("div",2,5)]
+break_tie_fns[("conf",2,5)] = break_tie_fns[("div",2,6)]
+break_tie_fns[("conf",2,6)] = break_tie_fns[("div",2,7)]
+break_tie_fns[("conf",2,7)] = break_tie_fns[("div",2,8)]
+break_tie_fns[("conf",2,9)] = break_tie_fns[("div",2,10)]
+break_tie_fns[("conf",2,11)] = break_tie_fns[("div",2,12)]
 
-def tb_conf_point_diff_common(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    return tb_div_point_diff_common(teams, caches)
-
-def tb_conf_point_diff_all(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    return tb_div_point_diff_all(teams, caches)
-
-CONF_TB_CHAIN = [
-    tb_conf_h2h,
-    tb_conf_confWLT,
-    tb_conf_common4,
-    tb_conf_strength_victory,
-    tb_conf_strength_schedule,
-    tb_conf_points_rank_conf,
-    tb_conf_points_rank_all,
-    tb_conf_point_diff_common,
-    tb_conf_point_diff_all,
-]
-
-
-# -----------------------------
-# Division winners, ranks, playoffs
-# -----------------------------
-
-def _best_by_chain(teams: Sequence[str], chain: Sequence, caches: _Caches) -> Optional[str]:
-    for fn in chain:
-        pick = fn(teams, caches)
-        if pick is not None:
-            return pick
+def find_sweep(teams, df_ind, df_standings):
+    for t in teams:
+        others = [x for x in teams if x != t]
+        outcomes = []
+        temp_df = df_ind[(df_ind["Team"] == t) & (df_ind["Opponent"].isin(others))]
+        outcomes += list(temp_df["Outcome"])
+        if len(outcomes) >= len(others): # make sure teams played
+            if set(outcomes) == {'Win'}:
+                return t
+            elif set(outcomes) == {'Loss'}:
+                return break_tie_conf(others,df_ind,df_standings)
     return None
 
-def _group_by_division(teams: Iterable[str], team_to_div: Dict[str,str]) -> Dict[str, List[str]]:
-    g: Dict[str, List[str]] = {}
-    for t in teams:
-        d = team_to_div.get(t, "")
-        g.setdefault(d, []).append(t)
-    return g
+break_tie_fns[("conf",3,2)] = find_sweep
+break_tie_fns[("conf",3,3)] = break_tie_fns[("div",3,4)]
+break_tie_fns[("conf",3,4)] = break_tie_fns[("conf",2,3)]
+break_tie_fns[("conf",3,5)] = break_tie_fns[("div",2,5)]
+break_tie_fns[("conf",3,6)] = break_tie_fns[("div",2,6)]
+break_tie_fns[("conf",3,7)] = break_tie_fns[("div",2,7)]
+break_tie_fns[("conf",3,8)] = break_tie_fns[("div",2,8)]
+break_tie_fns[("conf",3,9)] = break_tie_fns[("conf",2,8)]
+break_tie_fns[("conf",3,10)] = break_tie_fns[("div",2,10)]
+break_tie_fns[("conf",3,12)] = break_tie_fns[("div",2,12)]
 
-def _group_by_conference(teams: Iterable[str], team_to_div: Dict[str,str]) -> Dict[str, List[str]]:
-    g: Dict[str, List[str]] = {}
-    for t in teams:
-        c = _get_conf(t, team_to_div)
-        g.setdefault(c, []).append(t)
-    return g
+def break_tie_div(teams,df_ind,df_standings):
+    scenario = 2 if len(teams) == 2 else 3
+    rules = sorted([c for (a,b,c) in break_tie_fns.keys() if a == 'div' and b == scenario])
+    for c in rules:
+        t = break_tie_fns[("div",scenario,c)](teams,df_ind,df_standings)
+        if t is not None:
+            return t
 
-def _rank_group(teams: List[str], base_metric: pd.Series, chain: Sequence, caches: _Caches) -> List[str]:
-    # sort by base metric desc, then break equal chunks by chain
-    df = pd.DataFrame({"team": teams, "base": base_metric.reindex(teams)}).sort_values("base", ascending=False)
-    ranked: List[str] = []
-    i = 0
-    while i < len(df):
-        val = df.iloc[i]["base"]
-        # slice of ties (same base)
-        j = i
-        tied = [df.iloc[j]["team"]]
-        j += 1
-        while j < len(df) and (
-            (pd.isna(val) and pd.isna(df.iloc[j]["base"])) 
-            or (df.iloc[j]["base"] == val)
-        ):
-            tied.append(df.iloc[j]["team"])
-            j += 1
+def break_tie_conf(teams,df_ind,df_standings):
+    scenario = 2 if len(teams) == 2 else 3
+    rules = sorted([c for (a,b,c) in break_tie_fns.keys() if a == 'conf' and b == scenario])
+    for c in rules:
+        t = break_tie_fns[("conf",scenario,c)](teams,df_ind,df_standings)
+        #print(("conf",scenario,c))
+        if t is not None:
+            return t
 
+# Any numerical precision problems here?
+def get_div_winners(df_ind,df_standings):
+    winner_dict = {}
+    divs = sorted(list(set(df_standings.Division)))
+    for div in divs:
+        df = df_standings[df_standings["Division"] == div].sort_values("WLT",ascending=False).copy()
+        t = analyze_dict(dict(zip(df.index,df.WLT)),df_ind,df_standings)
+        if t is None:
+            t = break_tie_div(list(df.index),df_ind,df_standings)
+        winner_dict[div] = t
+    return winner_dict
 
-        if len(tied) == 1:
-            ranked.append(tied[0])
-        else:
-            # iterative selection among tied using chain (like stable ranking)
-            pool = tied[:]
-            while pool:
-                pick = _best_by_chain(pool, chain, caches)
-                if pick is None:
-                    # stable alphabetical fallback to keep deterministic
-                    pool.sort()
-                    ranked.extend(pool)
-                    pool = []
-                else:
-                    ranked.append(pick)
-                    pool.remove(pick)
-        i = j
-    return ranked
+def rank_div_winners(dw,df_ind,df_standings):
+    playoffs = {}
+    for conf in ["AFC","NFC"]:
+        playoffs[conf] = []
+        teams = [dw[x] for x in dw.keys() if x[:3] == conf]
+        while len(playoffs[conf]) < 3:
+            df = df_standings[df_standings["Team"].isin(teams)].sort_values("WLT",ascending=False).copy()
+            t = analyze_dict(dict(df.loc[teams,"WLT"]), df_ind, df_standings)
+            if t is None:
+                t = break_tie_conf(teams,df_ind,df_standings)
+            playoffs[conf].append(t)
+            try:
+                teams.remove(t)
+            except:
+                pass
+        playoffs[conf].append(teams[0])
+    return playoffs
 
-def get_div_winners(df_ind: pd.DataFrame, standings: pd.DataFrame, team_to_div: Dict[str,str], caches: _Caches) -> Dict[str, List[str]]:
-    winners: Dict[str, List[str]] = {}
-    by_div = _group_by_division(standings.index, team_to_div)
-    for div, teams in by_div.items():
-        base = standings["WLT"]
-        ranked = _rank_group(list(teams), base, DIV_TB_CHAIN, caches)
-        winners[div] = ranked[:1]  # top 1 is the winner
-    return winners
-
-def rank_within_divs(df_ind: pd.DataFrame, standings: pd.DataFrame, team_to_div: Dict[str,str], caches: _Caches) -> Dict[str, List[str]]:
-    ranks: Dict[str, List[str]] = {}
-    by_div = _group_by_division(standings.index, team_to_div)
-    for div, teams in by_div.items():
-        base = standings["WLT"]
-        ranks[div] = _rank_group(list(teams), base, DIV_TB_CHAIN, caches)
-    return ranks
-
-def rank_div_winners(div_winners: Dict[str, List[str]], standings: pd.DataFrame, team_to_div: Dict[str,str], caches: _Caches) -> Dict[str, List[str]]:
-    # For each conference, take 4 division winners and rank them
-    by_conf: Dict[str, List[str]] = {}
-    for div, lst in div_winners.items():
-        if not lst:
-            continue
-        t = lst[0]
-        by_conf.setdefault(_get_conf(t, team_to_div), []).append(t)
-
-    seeds: Dict[str, List[str]] = {}
-    base = standings["WLT"]
-    for conf, teams in by_conf.items():
-        seeds[conf] = _rank_group(list(teams), base, CONF_TB_CHAIN, caches)
-    return seeds
-
-def break_tie_conf(teams: Sequence[str], caches: _Caches) -> Optional[str]:
-    return _best_by_chain(list(teams), CONF_TB_CHAIN, caches)
-
-def get_best_record(teams: Sequence[str], standings: pd.DataFrame, caches: _Caches) -> Optional[str]:
-    base = standings['WLT'].reindex(list(teams))
-    # If both defined and not equal, pick max
-    if base.notna().all() and base.iloc[0] != base.iloc[1]:
-        return str(base.idxmax())
-    # Fallback chain that works cross-conference
-    chain = [
-        tb_div_points_rank_all,
-        tb_div_point_diff_all,
-        tb_div_strength_schedule,
-        tb_div_strength_victory,
-    ]
-    pick = _best_by_chain(list(teams), chain, caches)
-    if pick is not None:
-        return pick
-    # Final deterministic fallback
-    return sorted([t for t in teams if isinstance(t, str)])[:1][0] if any(isinstance(t, str) for t in teams) else None
+def rank_within_divs(dw,df_ind,df_standings):
+    dr = {}
+    for div in dw.keys():
+        dr[div] = []
+        df = df_standings[(df_standings["Division"] == div) & ~(df_standings["Team"] == dw[div])].sort_values("WLT",ascending=False).copy()
+        teams = list(df.index)
+        while len(dr[div]) < 2:
+            t = analyze_dict(dict(df.loc[teams,"WLT"]), df_ind, df_standings)
+            if t is None:
+                t = break_tie_div(teams,df_ind,df_standings)
+            dr[div].append(t)
+            teams.remove(t)
+        dr[div].append(teams[0])
+        dr[div] = [dw[div]]+dr[div]
+    return dr
 
 
-# -----------------------------
-# Top-level class
-# -----------------------------
+# Should probably rewrite this to be more like break_tie_conf
+def get_best_record(teams, df_ind, df_standings):
+    df = df_standings[df_standings["Team"].isin(teams)].sort_values("WLT",ascending=False).copy()
+    t = analyze_dict(dict(df.loc[teams,"WLT"]), df_ind, df_standings)
+    if t:
+        return t
+    t = find_sweep(teams, df_ind, df_standings)
+    if t:
+        return t
+    common = get_common(teams,df_ind)
+    df_sub_list = [df_ind[(df_ind.Team == t) & (df_ind.Opponent.isin(common))] for t in teams]
+    if min([len(df_sub) for df_sub in df_sub_list]) >= 4:
+        common_dict = {t: get_WLT(df_ind[(df_ind.Team == t) & (df_ind.Opponent.isin(common))]) for t in teams}
+        t = analyze_dict(common_dict, df_ind, df_standings)
+        if t:
+            return t
+    wlt_dict = {t: get_strength(get_victories(t,df_ind),df_ind) for t in teams}
+    t = analyze_dict(wlt_dict, df_ind, df_standings)
+    if t:
+        return t
+    # Not finished, we return a random choice if not yet found
+    return np.random.choice(teams)
+    
+
+
+def make_ind(df):
+    df_ind = pd.DataFrame(index=range(2*len(df)),columns=["Team","Opponent","Points_scored","Points_allowed","Outcome","div_game","conf_game"])
+    cols = list(df_ind.columns)
+    inds = [cols.index(col) for col in ["Team","Opponent","div_game","conf_game"]]
+    df_ind.iloc[::2,inds] = df[["home_team","away_team","div_game","conf_game"]]
+    df_ind.iloc[1::2,inds] = df[["away_team","home_team","div_game","conf_game"]]
+    scores = df[["home_score","away_score"]].apply(tuple,axis=1).to_list()
+    df_ind.loc[::2,["Points_scored","Points_allowed"]] = scores
+    df_ind.loc[1::2,["Points_allowed","Points_scored"]] = scores
+    df_ind.Outcome = df_ind.apply(get_outcome,axis=1)
+    return df_ind
 
 class Standings:
-    def __init__(self, df_scores: pd.DataFrame, team_to_division: dict[str, str] | None = None):
-        import os
-        if team_to_division is None:
-            div_path = os.path.join("data", "divisions.csv")
-            if not os.path.exists(div_path):
-                raise FileNotFoundError(
-                    "team_to_division not provided and 'data/divisions.csv' not found."
-                )
-            div_df = pd.read_csv(div_path)
-            if div_df.shape[1] >= 2:
-                team_to_division = dict(zip(div_df.iloc[:, 0], div_df.iloc[:, 1]))
-            else:
-                team_to_division = div_df.squeeze().to_dict()
-
-        # --- Normalize observed team codes using get_abbr ---
-        observed = pd.unique(df_scores[["home_team", "away_team"]].values.ravel())
-        normalized = {t: get_abbr(t) for t in observed}
-
-        # Expand team_to_division so it includes normalized keys
-        expanded = dict(team_to_division)
-        for raw, norm in normalized.items():
-            if raw not in expanded and norm in team_to_division:
-                expanded[raw] = team_to_division[norm]
-
-        # Final validation
-        missing = sorted(t for t in observed if t not in expanded)
-        if missing:
-            raise ValueError(
-                "Unmapped team codes in standings computation: "
-                + ", ".join(missing)
-                + ". Update 'data/divisions.csv' or extend 'team_to_division'."
-            )
-
-        self.team_to_div = expanded
-
-        # --- everything else stays the same ---
+    df_standings = pd.DataFrame(index=sorted(teams,key=lambda t: div_series[t]),columns=["Team","Wins","Losses","Ties","Points_scored","Points_allowed","WLT","Division","Conference"])
+    df_standings.Team = df_standings.index
+    df_standings.Division = df_standings.index.map(lambda t: div_series[t])
+    df_standings.Conference = df_standings.index.map(lambda t: div_series[t][:3])
+    standings = df_standings.copy()
+    
+    def __init__(self,df_scores):
+        if "schedule_playoff" in df_scores.columns:
+            df_scores = df_scores.loc[~df_scores["schedule_playoff"]].copy()
         df_ind = make_ind(df_scores)
-
-        agg = (df_ind.groupby("Team")
-               .agg(Wins=("Outcome", lambda s: (s == "Win").sum()),
-                    Losses=("Outcome", lambda s: (s == "Loss").sum()),
-                    Ties=("Outcome", lambda s: (s == "Tie").sum()),
-                    Points_scored=("Points_scored","sum"),
-                    Points_allowed=("Points_allowed","sum")))
-
-        totals = (agg["Wins"] + agg["Losses"] + agg["Ties"]).replace(0, np.nan)
-        agg["WLT"] = (agg["Wins"] + 0.5*agg["Ties"]) / totals
-
-        agg["Division"]   = [self.team_to_div.get(t, "") for t in agg.index]
-        agg["Conference"] = [d[:3] if d else "" for d in agg["Division"]]
-
-        self.standings = agg.sort_index()
-
-        caches = _Caches(df_ind=df_ind, standings_index=self.standings.index, team_to_div=self.team_to_div)
-
-        div_ranks = rank_within_divs(df_ind, self.standings, self.team_to_div, caches)
-        self.div_ranks = div_ranks
-
-        div_rank_map = {}
-        for div, order in div_ranks.items():
-            for i, t in enumerate(order, start=1):
-                div_rank_map[t] = i
-        self.standings["Division_rank"] = pd.Series(div_rank_map)
-
-        winners_by_div = get_div_winners(df_ind, self.standings, self.team_to_div, caches)
-        seeded = rank_div_winners(winners_by_div, self.standings, self.team_to_div, caches)
-
-        by_conf_divlists = _group_by_conference(self.standings.index, self.team_to_div)
-
-        wild_cards: Dict[str, List[str]] = {}
-        for conf, conf_teams in by_conf_divlists.items():
-            already = set(seeded.get(conf, []))
-            pool = [t for t in conf_teams if t not in already]
-            base = self.standings["WLT"]
-            conf_ranked = _rank_group(pool, base, CONF_TB_CHAIN, caches)
-            wild_cards[conf] = conf_ranked[:3]
-
-        self.playoffs = {conf: seeded.get(conf, []) + wild_cards.get(conf, [])
-                         for conf in by_conf_divlists.keys()}
-
-        top_afc = seeded.get("AFC", [None])[0] if seeded.get("AFC") else None
-        top_nfc = seeded.get("NFC", [None])[0] if seeded.get("NFC") else None
-        if top_afc and top_nfc:
-            self.best_reg_record = get_best_record([top_afc, top_nfc], self.standings, caches)
-        else:
-            self.best_reg_record = None
+        for a,b in df_ind.groupby("Team"):
+            res = b.Outcome.value_counts()
+            self.standings.loc[a,["Wins","Losses","Ties","Points_scored","Points_allowed"]] = [res.get("Win",0), res.get("Loss",0), res.get("Tie",0),
+                b["Points_scored"].sum(),b["Points_allowed"].sum()]
+        self.standings["WLT"] = (self.standings["Wins"]+0.5*self.standings["Ties"])/(self.standings["Wins"]+self.standings["Ties"]+self.standings["Losses"])
+        dw_unranked = get_div_winners(df_ind,self.standings)
+        dw = rank_div_winners(dw_unranked, df_ind, self.standings)
+        self.div_ranks = rank_within_divs(dw_unranked,df_ind,self.standings)
+        self.standings["Division_rank"] = self.standings.apply(lambda x: self.div_ranks[x["Division"]].index(x.name)+1, axis=1)
+        self.standings = self.standings.sort_values(["Division", "Division_rank"])
+        wild_cards = {}
+        div_eligible = {k:self.div_ranks[k][1:] for k in self.div_ranks.keys()}
+        for conf in ["AFC","NFC"]:
+            wild_cards[conf] = []
+            while len(wild_cards[conf]) < 3:
+                top_teams = [div_eligible[x][0] for x in div_eligible.keys() if x[:3] == conf]
+                t = analyze_dict(dict(self.standings.loc[top_teams,"WLT"]), df_ind, self.standings)
+                if t is None:
+                    t = break_tie_conf(top_teams, df_ind, self.standings)
+                wild_cards[conf].append(t)
+                try:
+                    div_eligible[div_series[t]].remove(t)
+                except:
+                    pass
+        self.playoffs = {conf:dw[conf] + wild_cards[conf] for conf in ["AFC","NFC"]}
+        self.best_reg_record = get_best_record([dw["AFC"][0], dw["NFC"][0]], df_ind, self.standings)
