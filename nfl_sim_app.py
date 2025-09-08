@@ -36,9 +36,6 @@ st.title('2025 NFL Season Simulator')
 pr_default = pd.read_csv("data/pr.csv", index_col="Team").squeeze()
 div_series = pd.read_csv("data/divisions.csv", index_col=0).squeeze()
 
-# The next portion doesn't seem to work the first time it's run
-# due to imports above, run with download_results = True, and then
-# switch back to False once they are downloaded.
 download_results = False
 if download_results:
     df_schedule = pd.read_csv("https://raw.githubusercontent.com/nflverse/nfldata/refs/heads/master/data/games.csv")
@@ -47,8 +44,9 @@ if download_results:
         lambda row: div_series[row["home_team"]][:3] == div_series[row["away_team"]][:3], axis=1
         )
     df_schedule.to_csv("schedules/schedule25.csv", index=False)
-else:
-    df_schedule = pd.read_csv("schedules/schedule25.csv")
+
+# The following fixes some dtype issues
+df_schedule = pd.read_csv("schedules/schedule25.csv")
 
 last_played = df_schedule[df_schedule["home_score"].notna()].iloc[-1]
 # last_played = "Nothing"
