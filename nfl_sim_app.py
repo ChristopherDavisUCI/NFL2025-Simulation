@@ -506,11 +506,11 @@ if info_choice == "Matchups":
         fs = st.session_state["full_standings"]
         n = 50 # how many matchups to display
         for conf in ["AFC", "NFC"]:
-            rows = process_standings(fs[conf][:n])
+            rows = process_standings(fs[conf])
             m = min(n, len(rows))
             st.write(f"{m} most likely {conf} matchups:")
             output_str = ''''''
-            for match, prop in rows:
+            for match, prop in rows[:n]:
                 output_str += f'''Probability {prop:.3f}: {match}  
 '''
             st.markdown(output_str)
